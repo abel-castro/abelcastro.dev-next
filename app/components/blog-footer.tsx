@@ -6,7 +6,7 @@ export default async function BlogFooter() {
       <p>
         Abel Castro {currentYear} - checkout the source code of this blog on{" "}
         <a
-          href="https://github.com/abel-castro/abelcastro.dev"
+          href="https://github.com/abel-castro/abelcastro.dev-next"
           className="footer-link text-teal-500 hover:text-teal-700"
           target="_blank"
         >

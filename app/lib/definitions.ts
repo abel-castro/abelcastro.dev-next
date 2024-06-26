@@ -8,4 +8,5 @@ export type Post = {
   date: string;
   tags: Tag[];
   content: string;
+  meta_description: string;
 };

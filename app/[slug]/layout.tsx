@@ -1,16 +1,9 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
 import BlogHeader from "../components/blog-header";
 import BlogFooter from "../components/blog-footer";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "AbelCastro.Dev",
-  description:
-    "My personal blog where I (and LLMs 🤖) write about coding-related topics.",
-};
 
 export default function Layout({
   children,
