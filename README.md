@@ -22,6 +22,10 @@ https://github.com/sergioramos/remark-prism/issues/457#issuecomment-1835239321
 
 https://tailwindcss.com/docs/background-color
 
+
+### Next.js metadata
+https://nextjs.org/docs/app/building-your-application/optimizing/metadata
+
 ## Getting Started
 
 Provide somehow an Rest-API that returns blog posts as defined in `definitions.ts`.
