@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default async function PostTitle({
   title,
   slug,
@@ -13,7 +15,7 @@ export default async function PostTitle({
         hasLink ? "hover:text-sky-700" : ""
       }`}
     >
-      {hasLink ? <a href={slug}>{title}</a> : title}
+      {hasLink ? <Link href={slug}>{title}</Link> : title}
     </h2>
   );
 }
