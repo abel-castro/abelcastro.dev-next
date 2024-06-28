@@ -17,7 +17,7 @@ export default async function Page() {
 
         <h3 className="font-bold mt-4">1. Information We Collect</h3>
         <p>
-          This service collects data regarding visitors' request metadata, which
+          This service collects data regarding visitors request metadata, which
           includes IP addresses, browser types, operating systems, and other
           similar information. This data is solely used for statistical analysis
           purposes to improve our website and services. No personal data is
