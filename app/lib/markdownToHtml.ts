@@ -1,3 +1,5 @@
+import "prismjs/themes/prism-tomorrow.css";
+
 import { remark } from "remark";
 import html from "remark-html";
 import rehypePrism from "@mapbox/rehype-prism";
@@ -5,7 +7,14 @@ import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 
-import "prismjs/themes/prism-tomorrow.css";
+// register alias for markdown code blocks
+// https://github.com/mapbox/rehype-prism/issues/6
+import refractor from "refractor";
+import bash from "refractor/lang/bash";
+
+refractor.register(bash);
+refractor.alias({ bash: ["sh", "shell"] });
+refractor.highlight("*Emphasis*", "bash");
 
 export default async function markdownToHtml(
   markdownContent: string

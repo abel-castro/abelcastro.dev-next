@@ -14,3 +14,19 @@ export function PostContentSkeleton() {
     </div>
   );
 }
+
+
+export function PostListSkeleton() {
+  return (
+    <>
+      <div className="animate-pulse flex flex-col space-y-4 shadow-md">
+        <div className="h-6 bg-gray-300 rounded w-1/3 shimmer"></div>
+        <PostContentSkeleton />
+      </div>
+      <div className="animate-pulse flex flex-col space-y-4 shadow-md">
+        <div className="h-6 bg-gray-300 rounded w-1/3 shimmer"></div>
+        <PostContentSkeleton />
+      </div>
+    </>
+  );
+}

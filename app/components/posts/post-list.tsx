@@ -1,12 +1,21 @@
-import { fetchAllPosts } from "../../lib/fetchPosts";
+import { Post } from "@/app/lib/definitions";
 import PostSeparator from "./post-separator";
 import PostSingle from "./post-single";
+import { fetchAllPosts } from "@/app/lib/fetchPosts";
 
-export default async function PostList() {
-  const posts = await fetchAllPosts();
+export default async function PostList({
+  query,
+  currentPage,
+}: {
+  query: string;
+  currentPage: number;
+}) {
+  const postsResponse = await fetchAllPosts(query, currentPage);
+  const posts = postsResponse.results;
+
   return (
     <>
-      {posts.map((post) => (
+      {posts.map((post: Post, index: number) => (
         <>
           <PostSingle
             key={post.slug}
@@ -16,7 +25,7 @@ export default async function PostList() {
             tags={post.tags}
             content={post.content}
           />
-          <PostSeparator />
+          {index < 2 && <PostSeparator />}
         </>
       ))}
     </>

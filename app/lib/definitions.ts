@@ -10,3 +10,10 @@ export type Post = {
   content: string;
   meta_description: string;
 };
+
+export type PostsAPIResponse = {
+  count: number;
+  next: string;
+  previous: string | null;
+  results: Post[];
+};
