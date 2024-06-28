@@ -10,12 +10,16 @@ type Props = {
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
-): Promise<Metadata> {
+): Promise<Metadata | null> {
   // read route params
   const slug = params.slug;
 
   // fetch data
   const post = await fetchSinglePost(slug);
+
+  if (!post) {
+    return null;
+  }
 
   return {
     title: post.title,
