@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import markdownToHtml from "../../lib/markdownToHtml";
 
-export default async function PostContent({ content }: { content: string }) {
+export default function PostContent({ content }: { content: string }) {
   const [htmlContent, setHtmlContent] = useState<string>("");
 
   useEffect(() => {
