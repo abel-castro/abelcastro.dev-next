@@ -1,6 +1,5 @@
 import React from "react";
-import Link from 'next/link'
-
+import Link from "next/link";
 
 export default async function Page() {
   return (
@@ -45,8 +44,7 @@ export default async function Page() {
           In the spirit of transparency, my analytics tool is open-source, and
           the source code can be reviewed at{" "}
           <Link href="https://github.com/abel-castro/basic_analytics">
-            https://github.com/abel-castro/basic_analytics
-            prefetch={false}
+            https://github.com/abel-castro/basic_analytics prefetch={false}
           </Link>
           .
         </p>
