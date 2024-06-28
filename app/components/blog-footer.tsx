@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 export default async function BlogFooter() {
   const currentYear = new Date().getFullYear();
@@ -8,7 +8,7 @@ export default async function BlogFooter() {
       <p>
         Abel Castro {currentYear} - checkout the source code of this blog on{" "}
         <Link
-          href="https://github.comLinkabel-castro/abelcastro.dev-next"
+          href="https://github.com/abel-castro/abelcastro.dev-next"
           className="footer-link text-teal-500 hover:text-teal-700"
           target="_blank"
           prefetch={false}
