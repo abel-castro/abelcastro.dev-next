@@ -1,15 +1,28 @@
+import { error } from "console";
 import { Post, PostsAPIResponse } from "./definitions";
 
 export async function fetchAllPosts(
   query?: string | undefined,
   page: number = 1
 ): Promise<PostsAPIResponse> {
-  const res = await fetch(
-    `${process.env.BLOG_API_URL}?query=${query}&?page=${page}`
-  );
+  const apiUrl = process.env.BLOG_API_URL;
+  if (!apiUrl) {
+    throw new Error("BLOG_API_URL is not set");
+  }
+
+  const urlWithParams = new URL(apiUrl);
+
+  if (query) {
+    urlWithParams.searchParams.append("query", query);
+  }
+  urlWithParams.searchParams.append("page", page.toString());
+
+  const res = await fetch(urlWithParams.toString());
+
   if (!res.ok) {
     throw new Error("Failed to fetch posts");
   }
+
   return res.json();
 }
 
