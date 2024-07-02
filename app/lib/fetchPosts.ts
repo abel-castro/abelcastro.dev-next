@@ -4,12 +4,19 @@ export async function fetchAllPosts(
   query?: string | undefined,
   page: number = 1
 ): Promise<PostsAPIResponse> {
-  const res = await fetch(
-    `${process.env.BLOG_API_URL}?query=${query}&?page=${page}`
-  );
+  const url = new URL(process.env.BLOG_API_URL);
+
+  if (query) {
+    url.searchParams.append('query', query);
+  }
+  url.searchParams.append('page', page.toString());
+
+  const res = await fetch(url.toString());
+
   if (!res.ok) {
     throw new Error("Failed to fetch posts");
   }
+  
   return res.json();
 }
 
