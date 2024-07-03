@@ -1,4 +1,4 @@
-# abelcastro.dev (Next.js version)
+# blog.abelcastro.dev
 
 The first version of my blog was developed with Django (see more here https://github.com/abel-castro/abelcastro.dev).
 In this repository I re-imagined it using [Next.js](https://nextjs.org/).
