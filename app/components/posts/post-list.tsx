@@ -10,7 +10,7 @@ export default async function PostList({
   query: string;
   currentPage: number;
 }) {
-  const postsResponse = await fetchAllPosts(query, currentPage);
+  const postsResponse = await fetchAllPosts({query: query, page: currentPage});
   const posts = postsResponse.results;
 
   return (

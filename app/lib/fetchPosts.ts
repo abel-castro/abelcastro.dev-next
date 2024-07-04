@@ -1,10 +1,18 @@
 import { error } from "console";
 import { Post, PostsAPIResponse } from "./definitions";
 
-export async function fetchAllPosts(
-  query?: string | undefined,
-  page: number = 1
-): Promise<PostsAPIResponse> {
+interface FetchAllPostsOptions {
+  query?: string;
+  page?: number;
+  page_size?: number;
+}
+
+
+export async function fetchAllPosts({
+  query,
+  page = 1,
+  page_size,
+}: FetchAllPostsOptions = {}): Promise<PostsAPIResponse> {
   const apiUrl = process.env.BLOG_API_URL;
   if (!apiUrl) {
     throw new Error("BLOG_API_URL is not set");
@@ -14,6 +22,10 @@ export async function fetchAllPosts(
 
   if (query) {
     urlWithParams.searchParams.append("query", query);
+  }
+
+  if (page_size) {
+    urlWithParams.searchParams.append("page_size", page_size.toString());
   }
   urlWithParams.searchParams.append("page", page.toString());
 
