@@ -8,7 +8,7 @@ import Pagination from "./components/posts/post-pagination";
 import { POST_PAGE_SIZE } from "./constants";
 
 async function getTotalPages(query: string): Promise<number> {
-  const posts = await fetchAllPosts({query});
+  const posts = await fetchAllPosts({ query });
   return Math.ceil(posts.count / POST_PAGE_SIZE);
 }
 

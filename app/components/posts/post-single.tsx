@@ -2,9 +2,12 @@ import { Tag } from "../../lib/definitions";
 import PostTitle from "./post-title";
 import PostDate from "./post-date";
 import PostTags from "./post-tags";
-import PostContent from "./post-content";
 import { Suspense } from "react";
 import { PostContentSkeleton } from "./skeletons";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeHighlight from "rehype-highlight";
 
 export default async function PostSingle({
   title,
@@ -27,7 +30,20 @@ export default async function PostSingle({
       <PostDate date={date} />
       <PostTags tags={tags} />
       <Suspense fallback={<PostContentSkeleton />}>
-        <PostContent content={content} />
+        <div className="from-markdown max-w-none mt-4">
+          <MDXRemote
+            source={content}
+            options={{
+              mdxOptions: {
+                rehypePlugins: [
+                  rehypeSlug,
+                  rehypeAutolinkHeadings,
+                  rehypeHighlight,
+                ],
+              },
+            }}
+          />
+        </div>
       </Suspense>
     </div>
   );

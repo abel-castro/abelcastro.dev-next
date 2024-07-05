@@ -15,15 +15,20 @@ This project was bootstrapped with [`create-next-app`](https://github.com/vercel
 
 ## Ressources
 
-### Highlight code in markdown with prism
-https://github.com/sergioramos/remark-prism/issues/457#issuecomment-1835239321
+### Render Markdwon with MDX
+
+https://nextjs.org/docs/pages/building-your-application/configuring/mdx#remote-mdx
+
+### Highlight markdown content
+
+https://gaudion.dev/blog/mdx-syntax-highlighting
 
 ### Tailwind colors
 
 https://tailwindcss.com/docs/background-color
 
-
 ### Next.js metadata
+
 https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 
 ## Getting Started
