@@ -2,6 +2,7 @@ import { Post } from "@/app/lib/definitions";
 import PostSeparator from "./post-separator";
 import PostSingle from "./post-single";
 import { fetchAllPosts } from "@/app/lib/fetchPosts";
+import { Fragment } from "react";
 
 export default async function PostList({
   query,
@@ -19,7 +20,7 @@ export default async function PostList({
   return (
     <>
       {posts.map((post: Post, index: number) => (
-        <>
+        <Fragment key={post.slug}>
           <PostSingle
             key={post.slug}
             title={post.title}
@@ -29,7 +30,7 @@ export default async function PostList({
             content={post.content}
           />
           {index < 2 && <PostSeparator />}
-        </>
+        </Fragment>
       ))}
     </>
   );

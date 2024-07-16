@@ -8,6 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...posts.map((post: Post) => ({
+      key: post.slug,
       url: `${process.env.ROOT_URL}/${post.slug}`,
       lastmod: post.date,
       changefreq: "weekly",
