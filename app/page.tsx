@@ -25,7 +25,7 @@ export default async function Home({
   const totalPages = await getTotalPages(query);
 
   return (
-    <div className="min-h-screen flex flex-col dark:bg-slate-900">
+    <>
       <BlogHeader />
       <main className="flex-grow p-4">
         <div className="max-w-4xl mx-auto">
@@ -38,6 +38,6 @@ export default async function Home({
         </div>
       </main>
       <BlogFooter />
-    </div>
+    </>
   );
 }

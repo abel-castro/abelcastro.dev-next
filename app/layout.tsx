@@ -24,7 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body
+        className={`${inter.className} antialiased min-h-screen flex flex-col dark:bg-slate-900`}
+      >
         {children}
         <Analytics />
         <SpeedInsights />
