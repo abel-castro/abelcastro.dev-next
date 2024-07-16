@@ -41,6 +41,9 @@ const config: Config = {
             code: {
               color: theme("colors.sky.200"),
             },
+            blockquote: {
+              color: theme("colors.white"),
+            },
             "code::before": {
               content: "none",
             },
