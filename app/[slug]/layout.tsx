@@ -10,7 +10,9 @@ export default function Layout({
   return (
     <div className="min-h-screen flex flex-col dark:bg-slate-900">
       <BlogHeader />
-      <div className="max-w-4xl mx-auto">{children}</div>
+      <div className="flex-grow p-4">
+        <div className="max-w-4xl mx-auto">{children}</div>
+      </div>
       <BlogFooter />
     </div>
   );
