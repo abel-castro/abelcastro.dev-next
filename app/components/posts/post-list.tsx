@@ -1,22 +1,9 @@
 import { Post } from "@/app/lib/definitions";
 import PostSeparator from "./post-separator";
 import PostSingle from "./post-single";
-import { fetchAllPosts } from "@/app/lib/fetchPosts";
 import { Fragment } from "react";
 
-export default async function PostList({
-  query,
-  currentPage,
-}: {
-  query: string;
-  currentPage: number;
-}) {
-  const postsResponse = await fetchAllPosts({
-    query: query,
-    page: currentPage,
-  });
-  const posts = postsResponse.results;
-
+export default function PostList({ posts }: { posts: Post[] }) {
   return (
     <>
       {posts.map((post: Post, index: number) => (

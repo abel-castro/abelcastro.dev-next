@@ -1,6 +1,6 @@
 import { Tag } from "../../lib/definitions";
 
-export default async function PostTags({ tags }: { tags: Tag[] }) {
+export default function PostTags({ tags }: { tags: Tag[] }) {
   return (
     <div className="flex space-x-2 mb-2">
       {tags.map((tag, index) => (

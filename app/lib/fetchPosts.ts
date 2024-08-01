@@ -1,4 +1,3 @@
-import { error } from "console";
 import { Post, PostsAPIResponse } from "./definitions";
 
 interface FetchAllPostsOptions {
@@ -6,7 +5,6 @@ interface FetchAllPostsOptions {
   page?: number;
   page_size?: number;
 }
-
 
 export async function fetchAllPosts({
   query,
