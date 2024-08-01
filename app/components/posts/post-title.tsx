@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default async function PostTitle({
+export default function PostTitle({
   title,
   slug,
   hasLink = true,

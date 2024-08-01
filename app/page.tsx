@@ -7,9 +7,13 @@ import { fetchAllPosts } from "./lib/fetchPosts";
 import Pagination from "./components/posts/post-pagination";
 import { POST_PAGE_SIZE } from "./constants";
 
-async function getTotalPages(query: string): Promise<number> {
-  const posts = await fetchAllPosts({ query });
-  return Math.ceil(posts.count / POST_PAGE_SIZE);
+async function getPostsAndTotalPages(query: string, currentPage: number) {
+  const postsResponse = await fetchAllPosts({ query, page: currentPage });
+  const totalPages = Math.ceil(postsResponse.count / POST_PAGE_SIZE);
+  return {
+    posts: postsResponse.results,
+    totalPages,
+  };
 }
 
 export default async function Home({
@@ -22,7 +26,7 @@ export default async function Home({
 }) {
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
-  const totalPages = await getTotalPages(query);
+  const { posts, totalPages } = await getPostsAndTotalPages(query, currentPage);
 
   return (
     <>
@@ -30,7 +34,7 @@ export default async function Home({
       <main className="flex-grow p-4">
         <div className="max-w-4xl mx-auto">
           <Suspense key={query + currentPage} fallback={<PostListSkeleton />}>
-            <PostList query={query} currentPage={currentPage} />
+            <PostList posts={posts} />
           </Suspense>
           <div className="mt-12 flex w-full justify-center">
             <Pagination totalPages={totalPages} />

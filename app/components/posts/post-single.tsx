@@ -9,6 +9,8 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 
+const rehypePlugins = [rehypeSlug, rehypeAutolinkHeadings, rehypeHighlight];
+
 export default async function PostSingle({
   title,
   slug,
@@ -35,11 +37,7 @@ export default async function PostSingle({
             source={content}
             options={{
               mdxOptions: {
-                rehypePlugins: [
-                  rehypeSlug,
-                  rehypeAutolinkHeadings,
-                  rehypeHighlight,
-                ],
+                rehypePlugins,
               },
             }}
           />

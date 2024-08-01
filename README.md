@@ -37,16 +37,15 @@ Provide somehow an Rest-API that returns blog posts as defined in `definitions.t
 
 Create a `.env` file based on the `.env.template`
 
+Install dependencies:
+```bash
+pnpm i
+```
+
 Run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
