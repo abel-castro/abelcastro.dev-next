@@ -22,9 +22,13 @@
         "name": "next"
       }
     ],
+    "baseUrl": "./",
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "@/components/*": [
+        "components/*"
       ]
     }
   },
@@ -32,8 +36,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "app/components/posts/post-single.tsx"
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
