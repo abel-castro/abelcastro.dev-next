@@ -29,7 +29,8 @@ export default defineConfig({
     trace: "on-first-retry",
     // https://vercel.com/docs/security/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation
     extraHTTPHeaders: {
-      "x-vercel-protection-bypass": process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
+      "x-vercel-protection-bypass":
+        process.env.VERCEL_AUTOMATION_BYPASS_SECRET!,
     },
   },
 

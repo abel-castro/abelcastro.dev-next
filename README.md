@@ -34,6 +34,7 @@ https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 ### Run playwright on Gitlab
 
 https://playwright.dev/docs/ci-intro#on-deployment
+https://cushionapp.com/journal/how-to-use-playwright-with-github-actions-for-e2e-testing-of-vercel-preview
 
 ## Getting Started
 
