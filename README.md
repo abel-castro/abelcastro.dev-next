@@ -31,6 +31,10 @@ https://tailwindcss.com/docs/background-color
 
 https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 
+### Run playwright on Gitlab
+
+https://playwright.dev/docs/ci-intro#on-deployment
+
 ## Getting Started
 
 Provide somehow an Rest-API that returns blog posts as defined in `definitions.ts`.
@@ -38,6 +42,7 @@ Provide somehow an Rest-API that returns blog posts as defined in `definitions.t
 Create a `.env` file based on the `.env.template`
 
 Install dependencies:
+
 ```bash
 pnpm i
 ```
@@ -49,3 +54,19 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Tests
+
+This project provides e2e test with playwright.
+
+Headless run:
+
+```sh
+pnpm exec playwright test
+```
+
+Run with UI:
+
+```sh
+pnpm exec playwright test --ui
+```

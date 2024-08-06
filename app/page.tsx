@@ -32,7 +32,7 @@ export default async function Home({
     <>
       <BlogHeader />
       <main className="flex-grow p-4">
-        <div className="max-w-4xl mx-auto">
+        <div id="post-container" className="max-w-4xl mx-auto">
           <Suspense key={query + currentPage} fallback={<PostListSkeleton />}>
             <PostList posts={posts} />
           </Suspense>

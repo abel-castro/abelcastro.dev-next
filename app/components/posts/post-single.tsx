@@ -27,7 +27,7 @@ export default async function PostSingle({
   hasLink?: boolean;
 }) {
   return (
-    <div key={slug} className="mb-8">
+    <div key={slug} className="post-element mb-8">
       <PostTitle title={title} slug={slug} hasLink={hasLink} />
       <PostDate date={date} />
       <PostTags tags={tags} />

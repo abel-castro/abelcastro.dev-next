@@ -20,7 +20,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
 
   return (
     <>
-      <div className="inline-flex">
+      <div data-testid="pagination" className="inline-flex">
         <PaginationArrow
           direction="left"
           href={createPageURL(currentPage - 1)}
@@ -115,10 +115,15 @@ function PaginationArrow({
       <ArrowRightIcon className="w-4" />
     );
 
+  const testIdValue =
+    direction === "left" ? "pagination-back" : "pagination-forward";
+
   return isDisabled ? (
-    <div className={className}>{icon}</div>
+    <div className={className} data-testid={testIdValue}>
+      {icon}
+    </div>
   ) : (
-    <Link className={className} href={href}>
+    <Link className={className} href={href} data-testid={testIdValue}>
       {icon}
     </Link>
   );
