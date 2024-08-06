@@ -12,10 +12,10 @@ jobs:
         with:
           node-version: 18
       - name: Install dependencies
-        run: pnpm ci
+        run: npm ci
       - name: Install Playwright
-        run: pnpm playwright install --with-deps
+        run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: pnpm exec playwright test
+        run: npx playwright test
         env:
           PLAYWRIGHT_TEST_BASE_URL: ${{ github.event.deployment_status.target_url }}
