@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Home page component should match the snapshot 1`] = `<div />`;
+
+exports[`Privacy policy page component should match the snapshot 1`] = `<div />`;
+
+exports[`Single post page component should match the snapshot 1`] = `<div />`;

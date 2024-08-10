@@ -58,6 +58,22 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Tests
 
+### Unit tests
+This project provides unit tests with vitest.
+
+Run:
+
+```sh
+pnpm test
+```
+
+With coverage:
+
+```sh
+pnpm test:coverage
+```
+
+### End to end tests
 This project provides e2e test with playwright.
 
 Headless run:
@@ -71,3 +87,4 @@ Run with UI:
 ```sh
 pnpm exec playwright test --ui
 ```
+
