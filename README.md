@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/github/abel-castro/abelcastro.dev-next/branch/main/graph/badge.svg?token=YOUR_TOKEN)](github/abel-castro/abelcastro.dev-next)
+
 # blog.abelcastro.dev
 
 The first version of my blog was developed with Django (see more here https://github.com/abel-castro/abelcastro.dev).
