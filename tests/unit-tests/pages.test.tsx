@@ -1,9 +1,15 @@
-/// <reference types="vitest/globals" />
+import { describe, it, expect, test, vi, Mock } from "vitest";
 import React, { Suspense } from "react";
 import { render } from "@testing-library/react";
 import Home from "../../app/page";
-import SinglePostPage from "../../app/[slug]/page";
+import SinglePostPage, { generateMetadata } from "../../app/[slug]/page";
 import PrivacyPolicyPage from "../../app/privacy-policy/page";
+import { generateMockPostAPIResponse } from "./utils";
+import {
+  fetchSinglePost,
+  getPostsAndTotalPages,
+} from "../../app/lib/fetchPosts";
+import { Metadata, ResolvingMetadata } from "next";
 
 vi.mock("server-only", () => ({}));
 
@@ -15,36 +21,13 @@ vi.mock("next/navigation", () => ({
 
 // Mock the fetchAllPosts and MDXRemote
 vi.mock("../../app/lib/fetchPosts", () => ({
-  getPostsAndTotalPages: vi.fn().mockResolvedValue({
-    totalPages: 5,
-    posts: [
-      {
-        slug: "post-1",
-        title: "Post 1",
-        date: "2023-08-07",
-        tags: ["tag1", "tag2"],
-        content: "Content of post 1",
-      },
-      {
-        slug: "post-2",
-        title: "Post 2",
-        date: "2023-08-08",
-        tags: ["tag3", "tag4"],
-        content: "Content of post 2",
-      },
-    ],
-  }),
+  getPostsAndTotalPages: vi.fn(),
+  fetchSinglePost: vi.fn(),
 }));
 
 vi.mock("next-mdx-remote/rsc", () => ({
   MDXRemote: ({ source }: { source: string }) => <div>{source}</div>,
 }));
-
-
-const searchParams = {
-  query: "",
-  page: "1",
-};
 
 test("Home page component should match the snapshot", async () => {
   const searchParams = {
@@ -52,6 +35,11 @@ test("Home page component should match the snapshot", async () => {
     page: "1",
   };
 
+  const getPostsAndTotalPagesMock = getPostsAndTotalPages as Mock;
+  getPostsAndTotalPagesMock.mockResolvedValue({
+    posts: generateMockPostAPIResponse().results,
+    totalPages: 2,
+  });
   const { container } = render(
     <Suspense>
       <Home searchParams={searchParams} />
@@ -61,18 +49,66 @@ test("Home page component should match the snapshot", async () => {
   await expect(container).toMatchSnapshot();
 });
 
-test("Single post page component should match the snapshot", async () => {
-  const params = {
-    slug: "post-slug",
-  };
+describe("Single Post Page", () => {
+  test("Component should match the snapshot", async () => {
+    const params = {
+      slug: "post-slug",
+    };
 
-  const { container } = render(
-    <Suspense>
-      <SinglePostPage params={params} />
-    </Suspense>
-  );
+    const fetchSinglePostMock = fetchSinglePost as Mock;
+    fetchSinglePostMock.mockResolvedValue(
+      generateMockPostAPIResponse().results[0]
+    );
 
-  await expect(container).toMatchSnapshot();
+    const { container } = render(
+      <Suspense>
+        <SinglePostPage params={params} />
+      </Suspense>
+    );
+
+    await expect(container).toMatchSnapshot();
+  });
+
+  it("generateMetadata should return metadata for a valid post", async () => {
+    // Mock data for fetchSinglePost
+    const mockPost = {
+      title: "Test Post",
+      meta_description: "This is a test post description.",
+    };
+
+    // Mock implementation of fetchSinglePost
+    (fetchSinglePost as Mock).mockResolvedValue(mockPost);
+
+    // Define input props and parent metadata
+    const props = { params: { slug: "test-post" } };
+
+    // Expected metadata
+    const expectedMetadata: Metadata = {
+      title: "Test Post",
+      description: "This is a test post description.",
+    };
+
+    // Call the generateMetadata function
+    const result = await generateMetadata(props, {} as ResolvingMetadata);
+
+    // Verify the result
+    expect(result).toEqual(expectedMetadata);
+  });
+
+  it("generateMetadata should return null if the post is not found", async () => {
+    // Mock implementation of fetchSinglePost to return null
+    (fetchSinglePost as Mock).mockResolvedValue(null);
+
+    // Define input props and parent metadata
+    const props = { params: { slug: "non-existent-post" } };
+    const parent = {}; // Adjust if parent is used
+
+    // Call the generateMetadata function
+    const result = await generateMetadata(props, {} as ResolvingMetadata);
+
+    // Verify the result
+    expect(result).toBeNull();
+  });
 });
 
 test("Privacy policy page component should match the snapshot", async () => {
