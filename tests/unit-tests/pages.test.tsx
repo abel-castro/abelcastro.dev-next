@@ -1,13 +1,11 @@
 /// <reference types="vitest/globals" />
-import { expect, vi } from "vitest";
-
 import React, { Suspense } from "react";
 import { render } from "@testing-library/react";
 import Home from "../../app/page";
 import SinglePostPage from "../../app/[slug]/page";
 import PrivacyPolicyPage from "../../app/privacy-policy/page";
 
-//import "@testing-library/jest-dom";
+vi.mock("server-only", () => ({}));
 
 //Mock Next.js useSearchParams
 vi.mock("next/navigation", () => ({
@@ -42,10 +40,6 @@ vi.mock("next-mdx-remote/rsc", () => ({
   MDXRemote: ({ source }: { source: string }) => <div>{source}</div>,
 }));
 
-// Mock the rehype plugins
-//vi.mock("rehype-slug", () => vi.fn().mockImplementationOnce(() => {}));
-//vi.mock("rehype-autolink-headings", () => vi.fn(() => (tree: any) => tree));
-//vi.mock("rehype-highlight", () => vi.fn(() => (tree: any) => tree));
 
 const searchParams = {
   query: "",
