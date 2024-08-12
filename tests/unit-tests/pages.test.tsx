@@ -1,6 +1,6 @@
 import { describe, it, expect, test, vi, Mock } from "vitest";
 import React, { Suspense } from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Home from "../../app/page";
 import SinglePostPage, { generateMetadata } from "../../app/[slug]/page";
 import PrivacyPolicyPage from "../../app/privacy-policy/page";
@@ -14,10 +14,19 @@ import { Metadata, ResolvingMetadata } from "next";
 vi.mock("server-only", () => ({}));
 
 //Mock Next.js useSearchParams
-vi.mock("next/navigation", () => ({
-  useSearchParams: () => new URLSearchParams("page=1&query="),
-  usePathname: () => "blog.abelcastro.dev",
-}));
+vi.mock("next/navigation", () => {
+  const actual = vi.importActual("next/navigation");
+  return {
+    ...actual,
+    useRouter: vi.fn(() => ({
+      push: vi.fn(),
+    })),
+    useSearchParams: vi.fn(() => ({
+      get: vi.fn(),
+    })),
+    usePathname: vi.fn(),
+  };
+});
 
 // Mock the fetchAllPosts and MDXRemote
 vi.mock("../../app/lib/fetchPosts", () => ({
@@ -46,7 +55,10 @@ test("Home page component should match the snapshot", async () => {
     </Suspense>
   );
 
-  await expect(container).toMatchSnapshot();
+  // it is necessary access to the screen first.
+  // Otherwise, toMatchSnapshot will generate an empty snapshot
+  await screen.findByText("Post 1");
+  expect(container).toMatchSnapshot();
 });
 
 describe("Single Post Page", () => {
@@ -66,7 +78,10 @@ describe("Single Post Page", () => {
       </Suspense>
     );
 
-    await expect(container).toMatchSnapshot();
+    // it is necessary access to the screen first.
+    // Otherwise, toMatchSnapshot will generate an empty snapshot
+    await screen.findByText("Post 1");
+    expect(container).toMatchSnapshot();
   });
 
   it("generateMetadata should return metadata for a valid post", async () => {
@@ -114,5 +129,5 @@ describe("Single Post Page", () => {
 test("Privacy policy page component should match the snapshot", async () => {
   const { container } = render(<PrivacyPolicyPage />);
 
-  await expect(container).toMatchSnapshot();
+  expect(container).toMatchSnapshot();
 });

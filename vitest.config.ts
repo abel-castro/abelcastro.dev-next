@@ -27,6 +27,7 @@ export default defineConfig({
         "**/constants.ts",
         "**/definitions.ts",
         "**/loading.tsx",
+        "**/skeletons.tsx",
       ],
     },
   },

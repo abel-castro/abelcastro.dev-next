@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-export default async function PrivacyPolicyPage() {
+export default function PrivacyPolicyPage() {
   return (
     <>
       <main>
