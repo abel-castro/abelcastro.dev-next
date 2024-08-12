@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/github/abel-castro/abelcastro.dev-next/branch/main/graph/badge.svg?token=YOUR_TOKEN)](github/abel-castro/abelcastro.dev-next)
+
 # blog.abelcastro.dev
 
 The first version of my blog was developed with Django (see more here https://github.com/abel-castro/abelcastro.dev).
@@ -58,6 +60,22 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Tests
 
+### Unit tests
+This project provides unit tests with vitest.
+
+Run:
+
+```sh
+pnpm test
+```
+
+With coverage:
+
+```sh
+pnpm test:coverage
+```
+
+### End to end tests
 This project provides e2e test with playwright.
 
 Headless run:
@@ -71,3 +89,4 @@ Run with UI:
 ```sh
 pnpm exec playwright test --ui
 ```
+

@@ -1,3 +1,4 @@
+import { POST_PAGE_SIZE } from "../constants";
 import { Post, PostsAPIResponse } from "./definitions";
 
 interface FetchAllPostsOptions {
@@ -42,4 +43,16 @@ export async function fetchSinglePost(slug: string): Promise<Post | null> {
     return null;
   }
   return res.json();
+}
+
+export async function getPostsAndTotalPages(
+  query: string,
+  currentPage: number
+) {
+  const postsResponse = await fetchAllPosts({ query, page: currentPage });
+  const totalPages = Math.ceil(postsResponse.count / POST_PAGE_SIZE);
+  return {
+    posts: postsResponse.results,
+    totalPages,
+  };
 }

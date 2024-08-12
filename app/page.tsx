@@ -1,28 +1,21 @@
+import "server-only";
 import BlogFooter from "./components/blog-footer";
 import BlogHeader from "./components/blog-header";
 import PostList from "./components/posts/post-list";
 import { Suspense } from "react";
 import { PostListSkeleton } from "./components/posts/skeletons";
-import { fetchAllPosts } from "./lib/fetchPosts";
+import { getPostsAndTotalPages } from "./lib/fetchPosts";
 import Pagination from "./components/posts/post-pagination";
-import { POST_PAGE_SIZE } from "./constants";
 
-async function getPostsAndTotalPages(query: string, currentPage: number) {
-  const postsResponse = await fetchAllPosts({ query, page: currentPage });
-  const totalPages = Math.ceil(postsResponse.count / POST_PAGE_SIZE);
-  return {
-    posts: postsResponse.results,
-    totalPages,
-  };
-}
+export type HomeSearchParams = {
+  query?: string;
+  page?: string;
+};
 
 export default async function Home({
   searchParams,
 }: {
-  searchParams?: {
-    query?: string;
-    page?: string;
-  };
+  searchParams?: HomeSearchParams;
 }) {
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
@@ -32,7 +25,11 @@ export default async function Home({
     <>
       <BlogHeader />
       <main className="flex-grow p-4">
-        <div id="post-container" className="max-w-4xl mx-auto">
+        <div
+          id="post-container"
+          data-testid="post-container"
+          className="max-w-4xl mx-auto"
+        >
           <Suspense key={query + currentPage} fallback={<PostListSkeleton />}>
             <PostList posts={posts} />
           </Suspense>

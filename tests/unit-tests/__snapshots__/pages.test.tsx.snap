@@ -1,0 +1,358 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Home page component should match the snapshot 1`] = `
+<div>
+  <header
+    class="flex flex-col justify-between sm:flex-row sm:justify-between p-4 mb-8"
+  >
+    <h1
+      class="text-3xl font-bold rainbow-text text-center sm:text-left"
+    >
+      <a
+        href=""
+      >
+        abelcastro.dev
+      </a>
+    </h1>
+    <form
+      class="relative flex mt-4 sm:mt-0 w-full sm:w-auto sm:flex justify-center"
+      data-testid="search-form"
+    >
+      <label
+        class="sr-only"
+        for="search"
+      >
+        Search
+      </label>
+      <input
+        class="peer block rounded border border-gray-200 py-[9px] lg:pl-8 pl-4 text-sm outline-2 text-gray-500 w-full max-w-xs"
+        placeholder="Search in posts..."
+      />
+      <svg
+        aria-hidden="true"
+        class="hidden lg:block absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900 "
+        data-slot="icon"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </form>
+  </header>
+  <main
+    class="flex-grow p-4"
+  >
+    <div
+      class="max-w-4xl mx-auto"
+      data-testid="post-container"
+      id="post-container"
+    >
+      <div
+        class="post-element mb-8"
+      >
+        <h2
+          class="text-2xl font-bold mb-2 text-sky-500  hover:text-sky-700"
+        >
+          <a
+            href="post-1"
+          >
+            Post 1
+          </a>
+        </h2>
+        <p
+          class="text-sm"
+        >
+          2023-08-07
+        </p>
+        <div
+          class="flex space-x-2 mb-2"
+        >
+          <span
+            class="text-xs bg-sky-100 text-gray-800 py-1 px-2 rounded"
+          >
+            Tag 1
+          </span>
+          <span
+            class="text-xs bg-sky-100 text-gray-800 py-1 px-2 rounded"
+          >
+            Tag 2
+          </span>
+        </div>
+        <div
+          class="from-markdown max-w-none mt-4"
+        >
+          <div>
+            Content of post 1
+          </div>
+        </div>
+      </div>
+      <hr
+        class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-50 dark:via-sky-300"
+      />
+      <div
+        class="post-element mb-8"
+      >
+        <h2
+          class="text-2xl font-bold mb-2 text-sky-500  hover:text-sky-700"
+        >
+          <a
+            href="post-2"
+          >
+            Post 2
+          </a>
+        </h2>
+        <p
+          class="text-sm"
+        >
+          2023-08-08
+        </p>
+        <div
+          class="flex space-x-2 mb-2"
+        >
+          <span
+            class="text-xs bg-sky-100 text-gray-800 py-1 px-2 rounded"
+          >
+            Tag 3
+          </span>
+          <span
+            class="text-xs bg-sky-100 text-gray-800 py-1 px-2 rounded"
+          >
+            Tag 24
+          </span>
+        </div>
+        <div
+          class="from-markdown max-w-none mt-4"
+        >
+          <div>
+            Content of post 2
+          </div>
+        </div>
+      </div>
+      <hr
+        class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-50 dark:via-sky-300"
+      />
+      <div
+        class="mt-12 flex w-full justify-center"
+      >
+        <div
+          class="inline-flex"
+          data-testid="pagination"
+        >
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-md border pointer-events-none text-white-700 mr-2 md:mr-4"
+            data-testid="pagination-back"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-4"
+              data-slot="icon"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div
+            class="flex -space-x-px"
+          >
+            <div
+              class="flex h-10 w-10 items-center justify-center text-sm border rounded-l-md z-10 bg-teal-500 text-white-700"
+            >
+              1
+            </div>
+            <a
+              class="flex h-10 w-10 items-center justify-center text-sm border rounded-r-md hover:bg-teal-700"
+              href="undefined?get=function%28...s%29+%7B%0A++++let+r+%3D+I%28t%29%3B%0A++++r.called+%3D+%210%2C+r.callCount%2B%2B%2C+r.calls.push%28s%29%3B%0A++++let+R+%3D+r.next.shift%28%29%3B%0A++++if+%28R%29+%7B%0A++++++r.results.push%28R%29%3B%0A++++++let+%5Bo%2C+l%5D+%3D+R%3B%0A++++++if+%28o+%3D%3D%3D+%22ok%22%29%0A++++++++return+l%3B%0A++++++throw+l%3B%0A++++%7D%0A++++let+i%2C+c+%3D+%22ok%22%2C+a+%3D+r.results.length%3B%0A++++if+%28r.impl%29%0A++++++try+%7B%0A++++++++new.target+%3F+i+%3D+Reflect.construct%28r.impl%2C+s%2C+new.target%29+%3A+i+%3D+r.impl.apply%28this%2C+s%29%2C+c+%3D+%22ok%22%3B%0A++++++%7D+catch+%28o%29+%7B%0A++++++++throw+i+%3D+o%2C+c+%3D+%22error%22%2C+r.results.push%28%5Bc%2C+o%5D%29%2C+o%3B%0A++++++%7D%0A++++let+S+%3D+%5Bc%2C+i%5D%3B%0A++++return+w%28i%29+%26%26+i.then%28%0A++++++%28o%29+%3D%3E+r.resolves%5Ba%5D+%3D+%5B%22ok%22%2C+o%5D%2C%0A++++++%28o%29+%3D%3E+r.resolves%5Ba%5D+%3D+%5B%22error%22%2C+o%5D%0A++++%29%2C+r.results.push%28S%29%2C+i%3B%0A++%7D&page=2"
+            >
+              2
+            </a>
+          </div>
+          <a
+            class="flex h-10 w-10 items-center justify-center rounded-md border hover:bg-teal-700 ml-2 md:ml-4"
+            data-testid="pagination-forward"
+            href="undefined?get=function%28...s%29+%7B%0A++++let+r+%3D+I%28t%29%3B%0A++++r.called+%3D+%210%2C+r.callCount%2B%2B%2C+r.calls.push%28s%29%3B%0A++++let+R+%3D+r.next.shift%28%29%3B%0A++++if+%28R%29+%7B%0A++++++r.results.push%28R%29%3B%0A++++++let+%5Bo%2C+l%5D+%3D+R%3B%0A++++++if+%28o+%3D%3D%3D+%22ok%22%29%0A++++++++return+l%3B%0A++++++throw+l%3B%0A++++%7D%0A++++let+i%2C+c+%3D+%22ok%22%2C+a+%3D+r.results.length%3B%0A++++if+%28r.impl%29%0A++++++try+%7B%0A++++++++new.target+%3F+i+%3D+Reflect.construct%28r.impl%2C+s%2C+new.target%29+%3A+i+%3D+r.impl.apply%28this%2C+s%29%2C+c+%3D+%22ok%22%3B%0A++++++%7D+catch+%28o%29+%7B%0A++++++++throw+i+%3D+o%2C+c+%3D+%22error%22%2C+r.results.push%28%5Bc%2C+o%5D%29%2C+o%3B%0A++++++%7D%0A++++let+S+%3D+%5Bc%2C+i%5D%3B%0A++++return+w%28i%29+%26%26+i.then%28%0A++++++%28o%29+%3D%3E+r.resolves%5Ba%5D+%3D+%5B%22ok%22%2C+o%5D%2C%0A++++++%28o%29+%3D%3E+r.resolves%5Ba%5D+%3D+%5B%22error%22%2C+o%5D%0A++++%29%2C+r.results.push%28S%29%2C+i%3B%0A++%7D&page=2"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-4"
+              data-slot="icon"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer
+    class="text-slate-300 p-4 text-center text-sm"
+  >
+    <p>
+      Abel Castro 
+      2024
+       - checkout the source code of this blog on
+       
+      <a
+        class="footer-link text-teal-500 hover:text-teal-700"
+        href="https://github.com/abel-castro/abelcastro.dev-next"
+        target="_blank"
+      >
+        GitHub
+      </a>
+       
+      -
+       
+      <a
+        class="footer-link text-teal-500 hover:text-teal-700"
+        href="/privacy-policy"
+      >
+        Privacy Policy
+      </a>
+       
+    </p>
+  </footer>
+</div>
+`;
+
+exports[`Privacy policy page component should match the snapshot 1`] = `
+<div>
+  <main>
+    <h2
+      class="text-2xl font-bold mb-8"
+    >
+      Privacy Policy for abelcastro.dev
+    </h2>
+    <p>
+      This Privacy Policy document outlines the types of information that is collected and recorded by abelcastro.dev and how I use it.
+    </p>
+    <h3
+      class="font-bold mt-4"
+    >
+      1. Information We Collect
+    </h3>
+    <p>
+      This service collects data regarding visitors request metadata, which includes IP addresses, browser types, operating systems, and other similar information. This data is solely used for statistical analysis purposes to improve our website and services. No personal data is intentionally collected or used for profiling or marketing purposes.
+    </p>
+    <h3
+      class="font-bold mt-4"
+    >
+      2. Use of Collected Information
+    </h3>
+    <p>
+      The information I collect is used exclusively for generating aggregate statistical insights. These insights help me understand how visitors interact with the website, enabling me to enhance user experience and optimize the content. The data is not shared with or sold to third parties, including external analytics platforms like Google Analytics.
+    </p>
+    <h3
+      class="font-bold mt-4"
+    >
+      3. Data Processing and Storage
+    </h3>
+    <p>
+      The collected data is processed and stored securely. I take appropriate measures to prevent unauthorized access, disclosure, modification, or unauthorized destruction of the data.
+    </p>
+    <h3
+      class="font-bold mt-4"
+    >
+      4. Open Source Analytics
+    </h3>
+    <p>
+      In the spirit of transparency, my analytics tool is open-source, and the source code can be reviewed at
+       
+      <a
+        href="https://github.com/abel-castro/basic_analytics"
+      >
+        https://github.com/abel-castro/basic_analytics prefetch=
+      </a>
+      .
+    </p>
+    <h3
+      class="font-bold mt-4"
+    >
+      5. Your Privacy Rights
+    </h3>
+    <p>
+      As a visitor, you have the right to understand how your data is being used. Should you have any questions or concerns about I use of your request metadata, please feel free to contact me.
+    </p>
+    <h3
+      class="font-bold mt-4"
+    >
+      6. Consent
+    </h3>
+    <p>
+      By using this website, you hereby consent to our Privacy Policy and agree to its terms.
+    </p>
+    <h3
+      class="font-bold mt-4"
+    >
+      7. Policy Updates
+    </h3>
+    <p>
+      I reserve the right to update this policy as necessary to stay compliant with relevant laws and to reflect any changes to our data collection and usage practices. Any updates will be posted on this page.
+    </p>
+  </main>
+</div>
+`;
+
+exports[`Single Post Page > Component should match the snapshot 1`] = `
+<div>
+  <main>
+    <div
+      class="post-element mb-8"
+    >
+      <h2
+        class="text-2xl font-bold mb-2 text-sky-500  "
+      >
+        Post 1
+      </h2>
+      <p
+        class="text-sm"
+      >
+        2023-08-07
+      </p>
+      <div
+        class="flex space-x-2 mb-2"
+      >
+        <span
+          class="text-xs bg-sky-100 text-gray-800 py-1 px-2 rounded"
+        >
+          Tag 1
+        </span>
+        <span
+          class="text-xs bg-sky-100 text-gray-800 py-1 px-2 rounded"
+        >
+          Tag 2
+        </span>
+      </div>
+      <div
+        class="from-markdown max-w-none mt-4"
+      >
+        <div>
+          Content of post 1
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+`;
