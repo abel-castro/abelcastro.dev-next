@@ -38,6 +38,10 @@ https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 https://playwright.dev/docs/ci-intro#on-deployment
 https://cushionapp.com/journal/how-to-use-playwright-with-github-actions-for-e2e-testing-of-vercel-preview
 
+### Testing async react server components
+
+https://github.com/testing-library/react-testing-library/issues/1209#issuecomment-1569813305
+
 ## Getting Started
 
 Provide somehow an Rest-API that returns blog posts as defined in `definitions.ts`.
