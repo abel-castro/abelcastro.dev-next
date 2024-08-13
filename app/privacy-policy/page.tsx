@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
 
         <p>
           This Privacy Policy document outlines the types of information that is
-          collected and recorded by abelcastro.dev and how I use it.
+          collected and recorded by blog.abelcastro.dev and how I use it.
         </p>
 
         <h3 className="font-bold mt-4">1. Information We Collect</h3>
@@ -68,6 +68,25 @@ export default function PrivacyPolicyPage() {
           compliant with relevant laws and to reflect any changes to our data
           collection and usage practices. Any updates will be posted on this
           page.
+        </p>
+
+        <h3 className="font-bold mt-4">8. Hosting and Analytics Tools</h3>
+        <p>
+          This website is hosted on the Vercel platform. I use in this website
+          Vercel <a href="https://vercel.com/docs/analytics">Analytics</a> and{" "}
+          <a href="https://vercel.com/docs/speed-insights">Speed Insights</a>{" "}
+          tools to monitor and optimize the performance of this website. These
+          tools collect data on site performance, such as load times and error
+          rates, to help improve the overall user experience. Vercels use of
+          this data is governed by their own privacy policies, which can be
+          reviewed on their website.
+        </p>
+        <p>
+          While Vercel may collect information related to site performance, such
+          as server logs and performance metrics, this data is used solely to
+          enhance the performance and reliability of the website. No personally
+          identifiable information is shared with Vercel beyond what is
+          necessary for the operation of their services.
         </p>
       </main>
     </>
