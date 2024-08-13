@@ -114,9 +114,6 @@ importers:
       postcss:
         specifier: ^8.4.40
         version: 8.4.40
-      server-only:
-        specifier: ^0.0.1
-        version: 0.0.1
       tailwindcss:
         specifier: ^3.4.7
         version: 3.4.7(ts-node@10.9.2(@types/node@20.14.13)(typescript@5.5.4))

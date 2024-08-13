@@ -1,4 +1,3 @@
-import "server-only";
 import BlogFooter from "./components/blog-footer";
 import BlogHeader from "./components/blog-header";
 import PostList from "./components/posts/post-list";

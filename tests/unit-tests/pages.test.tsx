@@ -11,8 +11,6 @@ import {
 } from "../../app/lib/fetchPosts";
 import { Metadata, ResolvingMetadata } from "next";
 
-vi.mock("server-only", () => ({}));
-
 //Mock Next.js useSearchParams
 vi.mock("next/navigation", () => {
   const actual = vi.importActual("next/navigation");
