@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Post 1",
+        "slug": "post-1",
+        "meta_description": "Post 1 meta description",
+        "content": "Post 1 content",
+        "date": "2024-08-16",
+        "tags": [
+            {
+                "name": "Tag 1"
+            },
+            {
+                "name": "Tag 2"
+            }
+        ]
+    },
+    {
+        "title": "Post 2",
+        "slug": "post-2",
+        "meta_description": "Post 2 meta description",
+        "content": "Post 2 content",
+        "date": "2024-08-17",
+        "tags": [
+            {
+                "name": "Tag 3"
+            },
+            {
+                "name": "Tag 4"
+            }
+        ]
+    }
+]

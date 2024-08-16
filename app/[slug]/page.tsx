@@ -1,53 +1,56 @@
-import { notFound } from "next/navigation";
-import PostSingle from "../components/posts/post-single";
-import { fetchSinglePost } from "../lib/fetchPosts";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
-type Props = {
-  params: { slug: string };
+import { activeDataProvider } from '../../data-providers/active';
+import { IDataProvider } from '../../data-providers/interface';
+import PostSingle from '../components/posts/post-single';
+
+export type SinglePostPageProps = {
+    dataProvider?: IDataProvider;
+    params: { slug: string };
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata | null> {
-  // read route params
-  const slug = params.slug;
+export async function generateMetadata({
+    dataProvider = activeDataProvider,
+    params,
+}: SinglePostPageProps): Promise<Metadata | null> {
+    const slug = params.slug;
+    const post = await dataProvider.getBySlug(slug);
 
-  // fetch data
-  const post = await fetchSinglePost(slug);
+    if (!post) {
+        return null;
+    }
 
-  if (!post) {
-    return null;
-  }
-
-  return {
-    title: post.title,
-    description: post.meta_description,
-  };
+    return {
+        title: post.title,
+        description: post.meta_description,
+    };
 }
 
-export default async function SinglePostPage({ params }: { params: { slug: string } }) {
-  const slug = params.slug;
-  const post = await fetchSinglePost(slug);
+export default async function SinglePostPage({
+    dataProvider = activeDataProvider,
+    params,
+}: SinglePostPageProps) {
+    const slug = params.slug;
+    const post = await dataProvider.getBySlug(slug);
 
-  if (!post) {
-    notFound();
-  }
+    if (!post) {
+        notFound();
+    }
 
-  return (
-    <>
-      <main>
-        <PostSingle
-          key={post.slug}
-          title={post.title}
-          slug={post.slug}
-          date={post.date}
-          tags={post.tags}
-          content={post.content}
-          hasLink={false}
-        />
-      </main>
-    </>
-  );
+    return (
+        <>
+            <main>
+                <PostSingle
+                    key={post.slug}
+                    title={post.title}
+                    slug={post.slug}
+                    date={post.date}
+                    tags={post.tags}
+                    content={post.content}
+                    hasLink={false}
+                />
+            </main>
+        </>
+    );
 }
