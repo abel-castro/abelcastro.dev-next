@@ -5,10 +5,10 @@ import { activeDataProvider } from '../../data-providers/active';
 import { IDataProvider } from '../../data-providers/interface';
 import PostSingle from '../components/posts/post-single';
 
-export type SinglePostPageProps = {
+export interface SinglePostPageProps {
     dataProvider?: IDataProvider;
     params: { slug: string };
-};
+}
 
 export async function generateMetadata({
     dataProvider = activeDataProvider,
