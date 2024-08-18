@@ -16,7 +16,5 @@ export interface PostSearchOptions {
 
 export interface PaginatedPosts {
     totalPages: number;
-    previous: number | null;
-    next: number | null;
     posts: Post[];
 }

@@ -30,8 +30,6 @@ export class MemoryDataProvider extends BaseDataProvider {
         return {
             posts: posts,
             totalPages: calculateTotalPages(posts.length, POST_PAGE_SIZE),
-            previous: null,
-            next: null,
         };
     }
 

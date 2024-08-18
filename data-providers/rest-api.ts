@@ -38,11 +38,14 @@ export class RestAPIDataProvider extends BaseDataProvider {
 
         const jsonResponse: PostsAPIResponse = await response.json();
 
+        const baseUrl = process.env.ROOT_URL;
+        if (!baseUrl) {
+            throw new Error('ROOT_URL is not set');
+        }
+
         return {
             posts: jsonResponse.results,
             totalPages: calculateTotalPages(jsonResponse.count, POST_PAGE_SIZE),
-            previous: getPageNumberFromUrl(jsonResponse.previous),
-            next: getPageNumberFromUrl(jsonResponse.next),
         };
     }
 
@@ -56,15 +59,4 @@ export class RestAPIDataProvider extends BaseDataProvider {
 
         return jsonResponse;
     }
-}
-
-export function getPageNumberFromUrl(next: string | null): number | null {
-    if (next) {
-        const url = new URL(next);
-        const pageParam = url.searchParams.get('page');
-        if (pageParam) {
-            return parseInt(pageParam);
-        }
-    }
-    return null;
 }

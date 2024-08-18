@@ -26,6 +26,7 @@ export default defineConfig({
                 '*.config.mjs',
                 '**/layout.tsx',
                 '**/constants.ts',
+                '**/interface.ts',
                 '**/definitions.ts',
                 '**/loading.tsx',
                 '**/skeletons.tsx',
