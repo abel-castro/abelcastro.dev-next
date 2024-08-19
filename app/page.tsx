@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
-import { activeDataProvider } from '../data-providers/active';
-import { IDataProvider, PostSearchOptions } from '../data-providers/interface';
+import activeDataProvider from '../data-providers/active';
+import { PostSearchOptions } from '../data-providers/interface';
 import BlogFooter from './components/blog-footer';
 import BlogHeader from './components/blog-header';
 import PostList from './components/posts/post-list';
@@ -14,21 +14,17 @@ export type HomeSearchParams = {
 };
 
 interface HomeProps {
-    dataProvider?: IDataProvider;
-    searchParams?: HomeSearchParams;
+    searchParams: HomeSearchParams;
 }
 
-export default async function Home({
-    dataProvider = activeDataProvider,
-    searchParams,
-}: HomeProps) {
+export default async function Home({ searchParams }: HomeProps) {
     const query = searchParams?.query || '';
     const currentPage = Number(searchParams?.page) || 1;
     const options: PostSearchOptions = {
         currentPage: currentPage,
         query: query,
     };
-    const { posts, totalPages } = await dataProvider.getAll(options);
+    const { posts, totalPages } = await activeDataProvider.getAll(options);
 
     return (
         <>

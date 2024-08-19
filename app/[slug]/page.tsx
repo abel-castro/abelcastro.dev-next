@@ -1,21 +1,18 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { activeDataProvider } from '../../data-providers/active';
-import { IDataProvider } from '../../data-providers/interface';
+import activeDataProvider from '../../data-providers/active';
 import PostSingle from '../components/posts/post-single';
 
 export interface SinglePostPageProps {
-    dataProvider?: IDataProvider;
     params: { slug: string };
 }
 
 export async function generateMetadata({
-    dataProvider = activeDataProvider,
     params,
 }: SinglePostPageProps): Promise<Metadata | null> {
     const slug = params.slug;
-    const post = await dataProvider.getBySlug(slug);
+    const post = await activeDataProvider.getBySlug(slug);
 
     if (!post) {
         return null;
@@ -27,12 +24,9 @@ export async function generateMetadata({
     };
 }
 
-export default async function SinglePostPage({
-    dataProvider = activeDataProvider,
-    params,
-}: SinglePostPageProps) {
+export default async function SinglePostPage({ params }: SinglePostPageProps) {
     const slug = params.slug;
-    const post = await dataProvider.getBySlug(slug);
+    const post = await activeDataProvider.getBySlug(slug);
 
     if (!post) {
         notFound();

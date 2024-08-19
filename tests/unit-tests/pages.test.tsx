@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { readFileSync } from 'fs';
 import { Metadata } from 'next';
 import React, { Suspense } from 'react';
-import { describe, expect, it, test, vi } from 'vitest';
+import { beforeEach, describe, expect, test, vi } from 'vitest';
 
 import SinglePostPage, {
     SinglePostPageProps,
@@ -10,10 +10,8 @@ import SinglePostPage, {
 } from '../../app/[slug]/page';
 import Home from '../../app/page';
 import PrivacyPolicyPage from '../../app/privacy-policy/page';
+import activeDataProvider from '../../data-providers/active';
 import { MemoryDataProvider } from '../../data-providers/memory';
-
-const jsonData = JSON.parse(readFileSync('tests/test-data.json', 'utf-8'));
-const testDataProvider = new MemoryDataProvider(jsonData);
 
 //Mock Next.js useSearchParams
 vi.mock('next/navigation', () => {
@@ -34,15 +32,21 @@ vi.mock('next-mdx-remote/rsc', () => ({
     MDXRemote: ({ source }: { source: string }) => <div>{source}</div>,
 }));
 
+const jsonData = JSON.parse(readFileSync('tests/test-data.json', 'utf-8'));
+const memoryDataProvider = new MemoryDataProvider(jsonData);
+
 test('Home page component should match the snapshot', async () => {
     const searchParams = {
         query: '',
         page: '1',
     };
 
+    vi.spyOn(activeDataProvider, 'getPostsFromStorage').mockImplementation(() =>
+        memoryDataProvider.getPostsFromStorage(searchParams),
+    );
     const { container } = render(
         <Suspense>
-            <Home searchParams={searchParams} dataProvider={testDataProvider} />
+            <Home searchParams={searchParams} />
         </Suspense>,
     );
 
@@ -54,16 +58,21 @@ test('Home page component should match the snapshot', async () => {
 
 describe('Single Post Page', () => {
     test('Component should match the snapshot', async () => {
+        const postSlug = 'post-1';
         const params = {
-            slug: 'post-1',
+            slug: postSlug,
         };
+
+        vi.spyOn(
+            activeDataProvider,
+            'getSinglePostFromStorage',
+        ).mockImplementation(() =>
+            memoryDataProvider.getSinglePostFromStorage(postSlug),
+        );
 
         const { container } = render(
             <Suspense>
-                <SinglePostPage
-                    params={params}
-                    dataProvider={testDataProvider}
-                />
+                <SinglePostPage params={params} />
             </Suspense>,
         );
 
@@ -73,35 +82,42 @@ describe('Single Post Page', () => {
         expect(container).toMatchSnapshot();
     });
 
-    it('generateMetadata should return metadata for a valid post', async () => {
+    test('generateMetadata should return metadata for a valid post', async () => {
+        const postSlug = 'post-1';
+
+        vi.spyOn(
+            activeDataProvider,
+            'getSinglePostFromStorage',
+        ).mockImplementation(() =>
+            memoryDataProvider.getSinglePostFromStorage(postSlug),
+        );
+
         const props: SinglePostPageProps = {
-            dataProvider: testDataProvider,
-            params: { slug: 'post-1' },
+            params: { slug: postSlug },
         };
 
-        // Expected metadata
         const expectedMetadata: Metadata = {
             title: 'Post 1',
             description: 'Post 1 meta description',
         };
 
-        // Call the generateMetadata function
         const result = await generateMetadata(props);
 
-        // Verify the result
         expect(result).toEqual(expectedMetadata);
     });
 
-    it('generateMetadata should return null if the post is not found', async () => {
+    test('generateMetadata should return null if the post is not found', async () => {
         const props: SinglePostPageProps = {
-            dataProvider: testDataProvider,
             params: { slug: 'non-existent-post' },
         };
 
-        // Call the generateMetadata function
+        vi.spyOn(
+            activeDataProvider,
+            'getSinglePostFromStorage',
+        ).mockResolvedValue(null);
+
         const result = await generateMetadata(props);
 
-        // Verify the result
         expect(result).toBeNull();
     });
 });

@@ -7,4 +7,6 @@
 // Rest-API Data Provider
 import { RestAPIDataProvider } from './rest-api';
 
-export const activeDataProvider = new RestAPIDataProvider();
+const activeDataProvider = new RestAPIDataProvider();
+
+export default activeDataProvider;

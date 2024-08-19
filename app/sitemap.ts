@@ -1,7 +1,7 @@
 import { IDataProvider } from '@/data-providers/interface';
 import { MetadataRoute } from 'next';
 
-import { activeDataProvider } from '../data-providers/active';
+import activeDataProvider from '../data-providers/active';
 import { Post } from './lib/definitions';
 
 interface SitemapProps {
