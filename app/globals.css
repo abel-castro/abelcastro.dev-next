@@ -4,66 +4,70 @@
 @tailwind typography;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+    color: rgb(var(--foreground-rgb));
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
 }
 
 .rainbow-text {
-  transition: color 0.5s ease, text-shadow 0.5s ease;
+    transition:
+        color 0.5s ease,
+        text-shadow 0.5s ease;
 }
 
 .rainbow-text:hover {
-  animation: rainbow-animation 3s infinite;
-  transition: color 0.5s ease, text-shadow 0.5s ease;
+    animation: rainbow-animation 3s infinite;
+    transition:
+        color 0.5s ease,
+        text-shadow 0.5s ease;
 }
 
 @keyframes rainbow-animation {
-  0%,
-  100% {
-    color: #a855f7;
-    text-shadow: 0 0 20px rgba(168, 85, 247, 0.7);
-  } /* purple-500 */
-  16% {
-    color: #6366f1;
-    text-shadow: 0 0 20px rgba(99, 102, 241, 0.7);
-  } /* indigo-500 */
-  32% {
-    color: #3b82f6;
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
-  } /* blue-500 */
-  48% {
-    color: #22c55e;
-    text-shadow: 0 0 20px rgba(34, 197, 94, 0.7);
-  } /* green-500 */
-  64% {
-    color: #eab308;
-    text-shadow: 0 0 20px rgba(234, 179, 8, 0.7);
-  } /* amber-500 */
-  80% {
-    color: #f97316;
-    text-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
-  } /* orange-500 */
-  96% {
-    color: #ef4444;
-    text-shadow: 0 0 20px rgba(239, 68, 68, 0.7);
-  } /* red-500 */
+    0%,
+    100% {
+        color: #a855f7;
+        text-shadow: 0 0 20px rgba(168, 85, 247, 0.7);
+    } /* purple-500 */
+    16% {
+        color: #6366f1;
+        text-shadow: 0 0 20px rgba(99, 102, 241, 0.7);
+    } /* indigo-500 */
+    32% {
+        color: #3b82f6;
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
+    } /* blue-500 */
+    48% {
+        color: #22c55e;
+        text-shadow: 0 0 20px rgba(34, 197, 94, 0.7);
+    } /* green-500 */
+    64% {
+        color: #eab308;
+        text-shadow: 0 0 20px rgba(234, 179, 8, 0.7);
+    } /* amber-500 */
+    80% {
+        color: #f97316;
+        text-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
+    } /* orange-500 */
+    96% {
+        color: #ef4444;
+        text-shadow: 0 0 20px rgba(239, 68, 68, 0.7);
+    } /* red-500 */
 }

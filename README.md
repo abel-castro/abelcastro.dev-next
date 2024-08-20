@@ -9,9 +9,9 @@ In this first version, it fetches the posts from the REST-API described in https
 
 Features:
 
-- Next.js
-- [Tailwind CSS](https://tailwindcss.com)
-- [dotenv](https://www.npmjs.com/package/dotenv)
+-   Next.js
+-   [Tailwind CSS](https://tailwindcss.com)
+-   [dotenv](https://www.npmjs.com/package/dotenv)
 
 This project was bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -106,6 +106,7 @@ https://tailwindcss.com/docs/background-color
 https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 
 ### Run playwright on Gitlab
+
 ## Ressources
 
 ### Render Markdwon with MDX

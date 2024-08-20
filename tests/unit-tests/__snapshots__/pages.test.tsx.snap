@@ -69,7 +69,7 @@ exports[`Home page component should match the snapshot 1`] = `
         <p
           class="text-sm"
         >
-          2023-08-07
+          2024-08-16
         </p>
         <div
           class="flex space-x-2 mb-2"
@@ -89,7 +89,7 @@ exports[`Home page component should match the snapshot 1`] = `
           class="from-markdown max-w-none mt-4"
         >
           <div>
-            Content of post 1
+            Post 1 content
           </div>
         </div>
       </div>
@@ -111,7 +111,7 @@ exports[`Home page component should match the snapshot 1`] = `
         <p
           class="text-sm"
         >
-          2023-08-08
+          2024-08-17
         </p>
         <div
           class="flex space-x-2 mb-2"
@@ -124,14 +124,14 @@ exports[`Home page component should match the snapshot 1`] = `
           <span
             class="text-xs bg-sky-100 text-gray-800 py-1 px-2 rounded"
           >
-            Tag 24
+            Tag 4
           </span>
         </div>
         <div
           class="from-markdown max-w-none mt-4"
         >
           <div>
-            Content of post 2
+            Post 2 content
           </div>
         </div>
       </div>
@@ -170,21 +170,14 @@ exports[`Home page component should match the snapshot 1`] = `
             class="flex -space-x-px"
           >
             <div
-              class="flex h-10 w-10 items-center justify-center text-sm border rounded-l-md z-10 bg-teal-500 text-white-700"
+              class="flex h-10 w-10 items-center justify-center text-sm border rounded-l-md rounded-r-md z-10 bg-teal-500 text-white-700"
             >
               1
             </div>
-            <a
-              class="flex h-10 w-10 items-center justify-center text-sm border rounded-r-md hover:bg-teal-700"
-              href="undefined?get=function%28...s%29+%7B%0A++++let+r+%3D+I%28t%29%3B%0A++++r.called+%3D+%210%2C+r.callCount%2B%2B%2C+r.calls.push%28s%29%3B%0A++++let+R+%3D+r.next.shift%28%29%3B%0A++++if+%28R%29+%7B%0A++++++r.results.push%28R%29%3B%0A++++++let+%5Bo%2C+l%5D+%3D+R%3B%0A++++++if+%28o+%3D%3D%3D+%22ok%22%29%0A++++++++return+l%3B%0A++++++throw+l%3B%0A++++%7D%0A++++let+i%2C+c+%3D+%22ok%22%2C+a+%3D+r.results.length%3B%0A++++if+%28r.impl%29%0A++++++try+%7B%0A++++++++new.target+%3F+i+%3D+Reflect.construct%28r.impl%2C+s%2C+new.target%29+%3A+i+%3D+r.impl.apply%28this%2C+s%29%2C+c+%3D+%22ok%22%3B%0A++++++%7D+catch+%28o%29+%7B%0A++++++++throw+i+%3D+o%2C+c+%3D+%22error%22%2C+r.results.push%28%5Bc%2C+o%5D%29%2C+o%3B%0A++++++%7D%0A++++let+S+%3D+%5Bc%2C+i%5D%3B%0A++++return+w%28i%29+%26%26+i.then%28%0A++++++%28o%29+%3D%3E+r.resolves%5Ba%5D+%3D+%5B%22ok%22%2C+o%5D%2C%0A++++++%28o%29+%3D%3E+r.resolves%5Ba%5D+%3D+%5B%22error%22%2C+o%5D%0A++++%29%2C+r.results.push%28S%29%2C+i%3B%0A++%7D&page=2"
-            >
-              2
-            </a>
           </div>
-          <a
-            class="flex h-10 w-10 items-center justify-center rounded-md border hover:bg-teal-700 ml-2 md:ml-4"
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-md border pointer-events-none text-white-700 ml-2 md:ml-4"
             data-testid="pagination-forward"
-            href="undefined?get=function%28...s%29+%7B%0A++++let+r+%3D+I%28t%29%3B%0A++++r.called+%3D+%210%2C+r.callCount%2B%2B%2C+r.calls.push%28s%29%3B%0A++++let+R+%3D+r.next.shift%28%29%3B%0A++++if+%28R%29+%7B%0A++++++r.results.push%28R%29%3B%0A++++++let+%5Bo%2C+l%5D+%3D+R%3B%0A++++++if+%28o+%3D%3D%3D+%22ok%22%29%0A++++++++return+l%3B%0A++++++throw+l%3B%0A++++%7D%0A++++let+i%2C+c+%3D+%22ok%22%2C+a+%3D+r.results.length%3B%0A++++if+%28r.impl%29%0A++++++try+%7B%0A++++++++new.target+%3F+i+%3D+Reflect.construct%28r.impl%2C+s%2C+new.target%29+%3A+i+%3D+r.impl.apply%28this%2C+s%29%2C+c+%3D+%22ok%22%3B%0A++++++%7D+catch+%28o%29+%7B%0A++++++++throw+i+%3D+o%2C+c+%3D+%22error%22%2C+r.results.push%28%5Bc%2C+o%5D%29%2C+o%3B%0A++++++%7D%0A++++let+S+%3D+%5Bc%2C+i%5D%3B%0A++++return+w%28i%29+%26%26+i.then%28%0A++++++%28o%29+%3D%3E+r.resolves%5Ba%5D+%3D+%5B%22ok%22%2C+o%5D%2C%0A++++++%28o%29+%3D%3E+r.resolves%5Ba%5D+%3D+%5B%22error%22%2C+o%5D%0A++++%29%2C+r.results.push%28S%29%2C+i%3B%0A++%7D&page=2"
           >
             <svg
               aria-hidden="true"
@@ -202,7 +195,7 @@ exports[`Home page component should match the snapshot 1`] = `
                 stroke-linejoin="round"
               />
             </svg>
-          </a>
+          </div>
         </div>
       </div>
     </div>
@@ -317,13 +310,15 @@ exports[`Privacy policy page component should match the snapshot 1`] = `
       8. Hosting and Analytics Tools
     </h3>
     <p>
-      This website is hosted on the Vercel platform. I use in this website Vercel 
+      This website is hosted on the Vercel platform. I use in this website Vercel
+       
       <a
         href="https://vercel.com/docs/analytics"
       >
         Analytics
       </a>
-       and
+       
+      and
        
       <a
         href="https://vercel.com/docs/speed-insights"
@@ -354,7 +349,7 @@ exports[`Single Post Page > Component should match the snapshot 1`] = `
       <p
         class="text-sm"
       >
-        2023-08-07
+        2024-08-16
       </p>
       <div
         class="flex space-x-2 mb-2"
@@ -374,7 +369,7 @@ exports[`Single Post Page > Component should match the snapshot 1`] = `
         class="from-markdown max-w-none mt-4"
       >
         <div>
-          Content of post 1
+          Post 1 content
         </div>
       </div>
     </div>

@@ -1,71 +1,43 @@
-import { describe, it, expect, vi, Mock } from "vitest";
-import { fetchAllPosts } from "../../app/lib/fetchPosts";
-import sitemap from "../../app/sitemap"; // Adjust the path if necessary
-import { Post } from "../../app/lib/definitions";
-import { MetadataRoute } from "next";
+import { readFileSync } from 'fs';
+import { MetadataRoute } from 'next';
+import { describe, expect, test } from 'vitest';
 
-// Mock the fetchAllPosts function
-vi.mock("../../app/lib/fetchPosts", () => ({
-  fetchAllPosts: vi.fn(),
-}));
+import sitemap from '../../app/sitemap';
+import { MemoryDataProvider } from '../../data-providers/memory';
 
-describe("sitemap", () => {
-  it("should generate the sitemap with correct entries", async () => {
-    // Mock data for fetchAllPosts
-    const mockPosts = [
-      {
-        slug: "post-1",
-        date: "2024-01-01T00:00:00Z",
-      },
-      {
-        slug: "post-2",
-        date: "2024-02-01T00:00:00Z",
-      },
-    ];
+const jsonData = JSON.parse(readFileSync('tests/test-data.json', 'utf-8'));
+const testDataProvider = new MemoryDataProvider(jsonData);
 
-    // Mock implementation of fetchAllPosts
-    (fetchAllPosts as Mock).mockResolvedValue({
-      results: mockPosts,
+describe('sitemap', () => {
+    test('should generate the sitemap with correct entries', async () => {
+        const result = await sitemap({ dataProvider: testDataProvider });
+
+        const expectedResult = [
+            {
+                key: 'post-1',
+                url: `${process.env.ROOT_URL}/post-1`,
+                lastmod: '2024-08-16',
+                changefreq: 'weekly',
+                priority: 0.8,
+            },
+            {
+                key: 'post-2',
+                url: `${process.env.ROOT_URL}/post-2`,
+                lastmod: '2024-08-17',
+                changefreq: 'weekly',
+                priority: 0.8,
+            },
+        ];
+
+        expect(result).toEqual(expectedResult);
     });
 
-    // Call the sitemap function
-    const result = await sitemap();
+    test('should handle an empty posts array', async () => {
+        const emptyEmptyDataProvider = new MemoryDataProvider([]);
+        const result = await sitemap({ dataProvider: emptyEmptyDataProvider });
 
-    // Expected output
-    const expectedResult = [
-      {
-        key: "post-1",
-        url: `${process.env.ROOT_URL}/post-1`,
-        lastmod: "2024-01-01T00:00:00Z",
-        changefreq: "weekly",
-        priority: 0.8,
-      },
-      {
-        key: "post-2",
-        url: `${process.env.ROOT_URL}/post-2`,
-        lastmod: "2024-02-01T00:00:00Z",
-        changefreq: "weekly",
-        priority: 0.8,
-      },
-    ];
+        const expectedResult: MetadataRoute.Sitemap = [];
 
-    // Verify the result
-    expect(result).toEqual(expectedResult);
-  });
-
-  it("should handle an empty posts array", async () => {
-    // Mock implementation of fetchAllPosts
-    (fetchAllPosts as Mock).mockResolvedValue({
-      results: [],
+        expect(result).toEqual(expectedResult);
     });
-
-    // Call the sitemap function
-    const result = await sitemap();
-
-    // Expected output when there are no posts
-    const expectedResult: MetadataRoute.Sitemap = [];
-
-    // Verify the result
-    expect(result).toEqual(expectedResult);
-  });
 });

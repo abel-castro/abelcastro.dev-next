@@ -1,23 +1,23 @@
 name: Playwright Tests
 on:
-  deployment_status:
+    deployment_status:
 jobs:
-  e2e-tests:
-    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.46.0-jammy
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20.x
-      - name: Install dependencies
-        run: npm install -g pnpm && pnpm install
-      - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
-      - name: Run Playwright tests
-        env:
-          PLAYWRIGHT_TEST_BASE_URL: ${{ github.event.deployment_status.environment_url }}
-        run: pnpm exec playwright test
+    e2e-tests:
+        if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+        timeout-minutes: 60
+        runs-on: ubuntu-latest
+        container:
+            image: mcr.microsoft.com/playwright:v1.46.0-jammy
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 20.x
+            - name: Install dependencies
+              run: npm install -g pnpm && pnpm install
+            - name: Install Playwright Browsers
+              run: pnpm exec playwright install --with-deps
+            - name: Run Playwright tests
+              env:
+                  PLAYWRIGHT_TEST_BASE_URL: ${{ github.event.deployment_status.environment_url }}
+              run: pnpm exec playwright test
