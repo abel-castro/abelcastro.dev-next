@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { readFileSync } from 'fs';
 import { Metadata } from 'next';
 import React, { Suspense } from 'react';
-import { beforeEach, describe, expect, test, vi } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 
 import SinglePostPage, {
     SinglePostPageProps,
