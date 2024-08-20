@@ -1,5 +1,5 @@
 import { describe } from 'node:test';
-import { Mock, expect, it, test, vi } from 'vitest';
+import { Mock, expect, test, vi } from 'vitest';
 
 import { POST_PAGE_SIZE } from '../../../app/constants';
 import { Post, PostsAPIResponse } from '../../../app/lib/definitions';
@@ -12,14 +12,14 @@ global.fetch = vi.fn();
 const restAPIDataProvider = new RestAPIDataProvider();
 
 describe('RestAPIDataProvider.getPostsFromStorage tests', () => {
-    it('getPostsFromStorage should throw an error if BLOG_API_URL is not set', async () => {
+    test('getPostsFromStorage should throw an error if BLOG_API_URL is not set', async () => {
         delete process.env.BLOG_API_URL;
         await expect(
             restAPIDataProvider.getPostsFromStorage({}),
         ).rejects.toThrow('BLOG_API_URL is not set');
     });
 
-    it('getPostsFromStorage should fetch posts with query and page size', async () => {
+    test('getPostsFromStorage should fetch posts with query and page size', async () => {
         process.env.BLOG_API_URL = 'https://api.example.com/posts';
         process.env.ROOT_URL = 'https://example.com';
 
@@ -46,7 +46,7 @@ describe('RestAPIDataProvider.getPostsFromStorage tests', () => {
         );
     });
 
-    it('getPostsFromStorage should handle fetch errors', async () => {
+    test('getPostsFromStorage should handle fetch errors', async () => {
         process.env.BLOG_API_URL = 'https://api.example.com/posts';
 
         (global.fetch as Mock).mockResolvedValueOnce({
@@ -60,7 +60,7 @@ describe('RestAPIDataProvider.getPostsFromStorage tests', () => {
 });
 
 describe('RestAPIDataProvider.getSinglePostFromStorage tests', () => {
-    it('should fetch a single post by slug', async () => {
+    test('should fetch a single post by slug', async () => {
         process.env.BLOG_API_URL = 'https://api.example.com/posts';
 
         const mockPost: Post = generateMockPosts(1)[0];
@@ -77,7 +77,7 @@ describe('RestAPIDataProvider.getSinglePostFromStorage tests', () => {
         );
     });
 
-    it('should return null if the fetch fails', async () => {
+    test('should return null if the fetch fails', async () => {
         process.env.BLOG_API_URL = 'https://api.example.com/posts';
 
         (global.fetch as Mock).mockResolvedValueOnce({

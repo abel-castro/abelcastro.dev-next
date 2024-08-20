@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import { MetadataRoute } from 'next';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, test } from 'vitest';
 
 import sitemap from '../../app/sitemap';
 import { MemoryDataProvider } from '../../data-providers/memory';
@@ -9,7 +9,7 @@ const jsonData = JSON.parse(readFileSync('tests/test-data.json', 'utf-8'));
 const testDataProvider = new MemoryDataProvider(jsonData);
 
 describe('sitemap', () => {
-    it('should generate the sitemap with correct entries', async () => {
+    test('should generate the sitemap with correct entries', async () => {
         const result = await sitemap({ dataProvider: testDataProvider });
 
         const expectedResult = [
@@ -32,7 +32,7 @@ describe('sitemap', () => {
         expect(result).toEqual(expectedResult);
     });
 
-    it('should handle an empty posts array', async () => {
+    test('should handle an empty posts array', async () => {
         const emptyEmptyDataProvider = new MemoryDataProvider([]);
         const result = await sitemap({ dataProvider: emptyEmptyDataProvider });
 
