@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://blog.abelcastro.dev/sitemap
