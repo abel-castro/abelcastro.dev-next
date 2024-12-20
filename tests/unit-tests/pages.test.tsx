@@ -41,8 +41,8 @@ test('Home page component should match the snapshot', async () => {
         page: '1',
     };
 
-    vi.spyOn(activeDataProvider, 'getPostsFromStorage').mockImplementation(() =>
-        memoryDataProvider.getPostsFromStorage(searchParams),
+    vi.spyOn(activeDataProvider, 'getPosts').mockImplementation(() =>
+        memoryDataProvider.getPosts(searchParams),
     );
     const { container } = render(
         <Suspense>
@@ -63,11 +63,8 @@ describe('Single Post Page', () => {
             slug: postSlug,
         };
 
-        vi.spyOn(
-            activeDataProvider,
-            'getSinglePostFromStorage',
-        ).mockImplementation(() =>
-            memoryDataProvider.getSinglePostFromStorage(postSlug),
+        vi.spyOn(activeDataProvider, 'getPost').mockImplementation(() =>
+            memoryDataProvider.getPost(postSlug),
         );
 
         const { container } = render(
@@ -85,11 +82,8 @@ describe('Single Post Page', () => {
     test('generateMetadata should return metadata for a valid post', async () => {
         const postSlug = 'post-1';
 
-        vi.spyOn(
-            activeDataProvider,
-            'getSinglePostFromStorage',
-        ).mockImplementation(() =>
-            memoryDataProvider.getSinglePostFromStorage(postSlug),
+        vi.spyOn(activeDataProvider, 'getPostMetadata').mockImplementation(() =>
+            memoryDataProvider.getPost(postSlug),
         );
 
         const props: SinglePostPageProps = {
@@ -111,10 +105,7 @@ describe('Single Post Page', () => {
             params: { slug: 'non-existent-post' },
         };
 
-        vi.spyOn(
-            activeDataProvider,
-            'getSinglePostFromStorage',
-        ).mockResolvedValue(null);
+        vi.spyOn(activeDataProvider, 'getPost').mockResolvedValue(null);
 
         const result = await generateMetadata(props);
 

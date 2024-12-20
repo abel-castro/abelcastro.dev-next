@@ -14,9 +14,9 @@ const restAPIDataProvider = new RestAPIDataProvider();
 describe('RestAPIDataProvider.getPostsFromStorage tests', () => {
     test('getPostsFromStorage should throw an error if BLOG_API_URL is not set', async () => {
         delete process.env.BLOG_API_URL;
-        await expect(
-            restAPIDataProvider.getPostsFromStorage({}),
-        ).rejects.toThrow('BLOG_API_URL is not set');
+        await expect(restAPIDataProvider.getPosts({})).rejects.toThrow(
+            'BLOG_API_URL is not set',
+        );
     });
 
     test('getPostsFromStorage should fetch posts with query and page size', async () => {
@@ -35,7 +35,7 @@ describe('RestAPIDataProvider.getPostsFromStorage tests', () => {
             posts: mockRestAPIResponse.results,
         };
 
-        const response = await restAPIDataProvider.getPostsFromStorage({
+        const response = await restAPIDataProvider.getPosts({
             query: 'test',
             pageSize: 3,
         });
@@ -53,9 +53,9 @@ describe('RestAPIDataProvider.getPostsFromStorage tests', () => {
             ok: false,
         });
 
-        await expect(
-            restAPIDataProvider.getPostsFromStorage({}),
-        ).rejects.toThrow('Failed to fetch posts');
+        await expect(restAPIDataProvider.getPosts({})).rejects.toThrow(
+            'Failed to fetch posts',
+        );
     });
 });
 
@@ -69,8 +69,7 @@ describe('RestAPIDataProvider.getSinglePostFromStorage tests', () => {
             json: async () => mockPost,
         });
 
-        const response =
-            await restAPIDataProvider.getSinglePostFromStorage('post-1');
+        const response = await restAPIDataProvider.getPost('post-1');
         expect(response).toEqual(mockPost);
         expect(global.fetch).toHaveBeenCalledWith(
             'https://api.example.com/posts/post-1',
@@ -84,8 +83,7 @@ describe('RestAPIDataProvider.getSinglePostFromStorage tests', () => {
             ok: false,
         });
 
-        const response =
-            await restAPIDataProvider.getSinglePostFromStorage('post-1');
+        const response = await restAPIDataProvider.getPost('post-1');
         expect(response).toBeNull();
     });
 });
