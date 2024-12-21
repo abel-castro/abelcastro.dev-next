@@ -1,7 +1,12 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
 const apolloClient = new ApolloClient({
-    uri: process.env.BLOG_GRAPHQL_URL,
+    link: createHttpLink({
+        uri: process.env.BLOG_GRAPHQL_URL,
+        fetchOptions: {
+            mode: 'cors',
+        },
+    }),
     cache: new InMemoryCache(),
 });
 
