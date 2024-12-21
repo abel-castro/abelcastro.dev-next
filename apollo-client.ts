@@ -6,6 +6,7 @@ const apolloClient = new ApolloClient({
         fetchOptions: {
             mode: 'cors',
         },
+        credentials: 'include',
     }),
     cache: new InMemoryCache(),
 });
