@@ -24,7 +24,7 @@ export default async function Home({ searchParams }: HomeProps) {
         currentPage: currentPage,
         query: query,
     };
-    const { posts, totalPages } = await activeDataProvider.getAll(options);
+    const { posts, totalPages } = await activeDataProvider.getPosts(options);
 
     return (
         <>

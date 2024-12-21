@@ -5,6 +5,7 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
     plugins: [react()],
     test: {
+        setupFiles: ['./vitest.setup.ts'],
         include: [
             'tests/unit-tests/*.(spec|test).(ts|tsx)',
             'tests/unit-tests/**/*.(spec|test).(ts|tsx)',
