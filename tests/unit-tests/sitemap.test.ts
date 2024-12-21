@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { MetadataRoute } from 'next';
 import { describe, expect, test } from 'vitest';
 
-import sitemap from '../../app/_sitemap';
+import sitemap from '../../app/sitemap';
 import { MemoryDataProvider } from '../../data-providers/memory';
 
 const jsonData = JSON.parse(readFileSync('tests/test-data.json', 'utf-8'));
