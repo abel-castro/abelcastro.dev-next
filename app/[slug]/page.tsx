@@ -12,24 +12,26 @@ export async function generateMetadata({
     params,
 }: SinglePostPageProps): Promise<Metadata | null> {
     const slug = params.slug;
-    const post = await activeDataProvider.getBySlug(slug);
+    const post = await activeDataProvider.getPostMetadata(slug);
 
     if (!post) {
+        notFound();
         return null;
     }
 
     return {
-        title: post.title,
+        title: `${post.title} | abelcastro.dev`,
         description: post.meta_description,
     };
 }
 
 export default async function SinglePostPage({ params }: SinglePostPageProps) {
     const slug = params.slug;
-    const post = await activeDataProvider.getBySlug(slug);
+    const post = await activeDataProvider.getOneBySlug(slug);
 
     if (!post) {
         notFound();
+        return null;
     }
 
     return (

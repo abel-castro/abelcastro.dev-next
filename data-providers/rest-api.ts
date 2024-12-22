@@ -5,7 +5,7 @@ import { PaginatedPosts, PostSearchOptions } from './interface';
 import { calculateTotalPages } from './utils';
 
 export class RestAPIDataProvider extends BaseDataProvider {
-    async getPostsFromStorage(
+    async getAllFromStorage(
         options: PostSearchOptions,
     ): Promise<PaginatedPosts> {
         const apiUrl = process.env.BLOG_API_URL;
@@ -49,7 +49,7 @@ export class RestAPIDataProvider extends BaseDataProvider {
         };
     }
 
-    async getSinglePostFromStorage(slug: string): Promise<Post | null> {
+    async getOneBySlugFromStorage(slug: string): Promise<Post | null> {
         const response = await fetch(`${process.env.BLOG_API_URL}/${slug}`);
         if (!response.ok) {
             return null;
@@ -58,5 +58,9 @@ export class RestAPIDataProvider extends BaseDataProvider {
         const jsonResponse: Post = await response.json();
 
         return jsonResponse;
+    }
+
+    async getPostMetadataFromStorage(slug: string): Promise<Post | null> {
+        return this.getOneBySlugFromStorage(slug);
     }
 }

@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { MetadataRoute } from 'next';
 import { describe, expect, test } from 'vitest';
 
-import sitemap from '../../app/sitemap';
+import sitemap, { getStaticProps } from '../../app/sitemap';
 import { MemoryDataProvider } from '../../data-providers/memory';
 
 const jsonData = JSON.parse(readFileSync('tests/test-data.json', 'utf-8'));
@@ -37,6 +37,18 @@ describe('sitemap', () => {
         const result = await sitemap({ dataProvider: emptyEmptyDataProvider });
 
         const expectedResult: MetadataRoute.Sitemap = [];
+
+        expect(result).toEqual(expectedResult);
+    });
+});
+describe('getStaticProps', () => {
+    test('should return props with revalidate set to 3600', async () => {
+        const result = await getStaticProps();
+
+        const expectedResult = {
+            props: {},
+            revalidate: 3600,
+        };
 
         expect(result).toEqual(expectedResult);
     });

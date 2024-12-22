@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { readFileSync } from 'fs';
 import { Metadata } from 'next';
 import React, { Suspense } from 'react';
-import { describe, expect, test, vi } from 'vitest';
+import { afterEach, describe, expect, test, vi } from 'vitest';
 
 import SinglePostPage, {
     SinglePostPageProps,
@@ -25,6 +25,7 @@ vi.mock('next/navigation', () => {
             get: vi.fn(),
         })),
         usePathname: vi.fn(),
+        notFound: vi.fn(),
     };
 });
 
@@ -35,28 +36,40 @@ vi.mock('next-mdx-remote/rsc', () => ({
 const jsonData = JSON.parse(readFileSync('tests/test-data.json', 'utf-8'));
 const memoryDataProvider = new MemoryDataProvider(jsonData);
 
-test('Home page component should match the snapshot', async () => {
-    const searchParams = {
-        query: '',
-        page: '1',
-    };
+describe('Home page', () => {
+    afterEach(() => {
+        vi.clearAllMocks();
+        vi.resetAllMocks();
+    });
 
-    vi.spyOn(activeDataProvider, 'getPostsFromStorage').mockImplementation(() =>
-        memoryDataProvider.getPostsFromStorage(searchParams),
-    );
-    const { container } = render(
-        <Suspense>
-            <Home searchParams={searchParams} />
-        </Suspense>,
-    );
+    test('Home page component should match the snapshot', async () => {
+        const searchParams = {
+            query: '',
+            page: '1',
+        };
 
-    // it is necessary access to the screen first.
-    // Otherwise, toMatchSnapshot will generate an empty snapshot
-    await screen.findByText('Post 1');
-    expect(container).toMatchSnapshot();
+        vi.spyOn(activeDataProvider, 'getAllFromStorage').mockImplementation(
+            () => memoryDataProvider.getAllFromStorage(searchParams),
+        );
+        const { container } = render(
+            <Suspense>
+                <Home searchParams={searchParams} />
+            </Suspense>,
+        );
+
+        // it is necessary access to the screen first.
+        // Otherwise, toMatchSnapshot will generate an empty snapshot
+        await screen.findByText('Post 1');
+        expect(container).toMatchSnapshot();
+    });
 });
 
 describe('Single Post Page', () => {
+    afterEach(() => {
+        vi.clearAllMocks();
+        vi.resetAllMocks();
+    });
+
     test('Component should match the snapshot', async () => {
         const postSlug = 'post-1';
         const params = {
@@ -65,9 +78,9 @@ describe('Single Post Page', () => {
 
         vi.spyOn(
             activeDataProvider,
-            'getSinglePostFromStorage',
+            'getOneBySlugFromStorage',
         ).mockImplementation(() =>
-            memoryDataProvider.getSinglePostFromStorage(postSlug),
+            memoryDataProvider.getOneBySlugFromStorage(postSlug),
         );
 
         const { container } = render(
@@ -82,14 +95,27 @@ describe('Single Post Page', () => {
         expect(container).toMatchSnapshot();
     });
 
-    test('generateMetadata should return metadata for a valid post', async () => {
-        const postSlug = 'post-1';
+    test('Component should raise not found', async () => {
+        const postSlug = 'post-not-found';
+        const params = {
+            slug: postSlug,
+        };
 
         vi.spyOn(
             activeDataProvider,
-            'getSinglePostFromStorage',
-        ).mockImplementation(() =>
-            memoryDataProvider.getSinglePostFromStorage(postSlug),
+            'getOneBySlugFromStorage',
+        ).mockResolvedValue(null);
+
+        const { container } = render(<SinglePostPage params={params} />);
+
+        expect(container).toMatchSnapshot();
+    });
+
+    test('generateMetadata should return metadata for a valid post', async () => {
+        const postSlug = 'post-1';
+
+        vi.spyOn(activeDataProvider, 'getPostMetadata').mockImplementation(() =>
+            memoryDataProvider.getPostMetadata(postSlug),
         );
 
         const props: SinglePostPageProps = {
@@ -97,7 +123,7 @@ describe('Single Post Page', () => {
         };
 
         const expectedMetadata: Metadata = {
-            title: 'Post 1',
+            title: 'Post 1 | abelcastro.dev',
             description: 'Post 1 meta description',
         };
 
@@ -111,10 +137,7 @@ describe('Single Post Page', () => {
             params: { slug: 'non-existent-post' },
         };
 
-        vi.spyOn(
-            activeDataProvider,
-            'getSinglePostFromStorage',
-        ).mockResolvedValue(null);
+        vi.spyOn(activeDataProvider, 'getPostMetadata').mockResolvedValue(null);
 
         const result = await generateMetadata(props);
 

@@ -23,3 +23,10 @@ export default async function sitemap({
         })),
     ];
 }
+
+export const getStaticProps = async () => {
+    return {
+        props: {},
+        revalidate: 3600,
+    };
+};

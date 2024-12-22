@@ -13,7 +13,7 @@ export class MemoryDataProvider extends BaseDataProvider {
         this.postsFromJson = postsFromJson as Post[];
     }
 
-    async getPostsFromStorage(
+    async getAllFromStorage(
         options: PostSearchOptions,
     ): Promise<PaginatedPosts> {
         const posts = this.postsFromJson.map((post: Post) => {
@@ -33,7 +33,7 @@ export class MemoryDataProvider extends BaseDataProvider {
         };
     }
 
-    async getSinglePostFromStorage(slug: string): Promise<Post | null> {
+    async getOneBySlugFromStorage(slug: string): Promise<Post | null> {
         const post = this.postsFromJson.find(
             (post: Post) => post.slug === slug,
         );
@@ -42,5 +42,9 @@ export class MemoryDataProvider extends BaseDataProvider {
         } else {
             return null;
         }
+    }
+
+    async getPostMetadataFromStorage(slug: string): Promise<Post | null> {
+        return this.getOneBySlugFromStorage(slug);
     }
 }
