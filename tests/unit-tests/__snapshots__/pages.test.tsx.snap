@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Home page component should match the snapshot 1`] = `
+exports[`Home page > Home page component should match the snapshot 1`] = `
 <div>
   <header
     class="flex flex-col justify-between sm:flex-row sm:justify-between p-4 mb-8"
@@ -376,3 +376,5 @@ exports[`Single Post Page > Component should match the snapshot 1`] = `
   </main>
 </div>
 `;
+
+exports[`Single Post Page > Component should raise not found 1`] = `<div />`;

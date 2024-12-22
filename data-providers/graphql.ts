@@ -59,7 +59,9 @@ export class GraphqlDataProvider extends BaseDataProvider {
         this.client = client;
     }
 
-    async getPosts(options: PostSearchOptions): Promise<PaginatedPosts> {
+    async getAllFromStorage(
+        options: PostSearchOptions,
+    ): Promise<PaginatedPosts> {
         const currentPage = options.currentPage || 1;
         const limit = options.pageSize || POST_PAGE_SIZE;
 
@@ -79,7 +81,7 @@ export class GraphqlDataProvider extends BaseDataProvider {
         };
     }
 
-    async getPost(slug: string): Promise<Post | null> {
+    async getOneBySlugFromStorage(slug: string): Promise<Post | null> {
         try {
             const { data } = await this.client.query<{ post: Post }>({
                 query: GET_POST,
@@ -93,7 +95,7 @@ export class GraphqlDataProvider extends BaseDataProvider {
         }
     }
 
-    async getPostMetadata(slug: string): Promise<Post | null> {
+    async getPostMetadataFromStorage(slug: string): Promise<Post | null> {
         try {
             const { data } = await this.client.query<{ post: Post }>({
                 query: GET_POST_METADATA,

@@ -14,7 +14,7 @@ const restAPIDataProvider = new RestAPIDataProvider();
 describe('RestAPIDataProvider.getPostsFromStorage tests', () => {
     test('getPostsFromStorage should throw an error if BLOG_API_URL is not set', async () => {
         delete process.env.BLOG_API_URL;
-        await expect(restAPIDataProvider.getPosts({})).rejects.toThrow(
+        await expect(restAPIDataProvider.getAllFromStorage({})).rejects.toThrow(
             'BLOG_API_URL is not set',
         );
     });
@@ -35,7 +35,7 @@ describe('RestAPIDataProvider.getPostsFromStorage tests', () => {
             posts: mockRestAPIResponse.results,
         };
 
-        const response = await restAPIDataProvider.getPosts({
+        const response = await restAPIDataProvider.getAllFromStorage({
             query: 'test',
             pageSize: 3,
         });
@@ -53,7 +53,7 @@ describe('RestAPIDataProvider.getPostsFromStorage tests', () => {
             ok: false,
         });
 
-        await expect(restAPIDataProvider.getPosts({})).rejects.toThrow(
+        await expect(restAPIDataProvider.getAllFromStorage({})).rejects.toThrow(
             'Failed to fetch posts',
         );
     });
@@ -69,7 +69,8 @@ describe('RestAPIDataProvider.getSinglePostFromStorage tests', () => {
             json: async () => mockPost,
         });
 
-        const response = await restAPIDataProvider.getPost('post-1');
+        const response =
+            await restAPIDataProvider.getOneBySlugFromStorage('post-1');
         expect(response).toEqual(mockPost);
         expect(global.fetch).toHaveBeenCalledWith(
             'https://api.example.com/posts/post-1',
@@ -83,7 +84,39 @@ describe('RestAPIDataProvider.getSinglePostFromStorage tests', () => {
             ok: false,
         });
 
-        const response = await restAPIDataProvider.getPost('post-1');
+        const response =
+            await restAPIDataProvider.getOneBySlugFromStorage('post-1');
+        expect(response).toBeNull();
+    });
+});
+
+describe('RestAPIDataProvider.getPostMetadataFromStorage tests', () => {
+    test('should fetch a single post by slug', async () => {
+        process.env.BLOG_API_URL = 'https://api.example.com/posts';
+
+        const mockPost: Post = generateMockPosts(1)[0];
+        (global.fetch as Mock).mockResolvedValueOnce({
+            ok: true,
+            json: async () => mockPost,
+        });
+
+        const response =
+            await restAPIDataProvider.getPostMetadataFromStorage('post-1');
+        expect(response).toEqual(mockPost);
+        expect(global.fetch).toHaveBeenCalledWith(
+            'https://api.example.com/posts/post-1',
+        );
+    });
+
+    test('should return null if the fetch fails', async () => {
+        process.env.BLOG_API_URL = 'https://api.example.com/posts';
+
+        (global.fetch as Mock).mockResolvedValueOnce({
+            ok: false,
+        });
+
+        const response =
+            await restAPIDataProvider.getPostMetadataFromStorage('post-1');
         expect(response).toBeNull();
     });
 });

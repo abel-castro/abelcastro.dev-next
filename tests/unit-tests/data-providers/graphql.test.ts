@@ -30,7 +30,7 @@ describe('GraphqlDataProvider.getPosts tests', () => {
             posts: generateMockPosts(6),
         };
 
-        const response = await graphqlDataProvider.getPosts({
+        const response = await graphqlDataProvider.getAllFromStorage({
             query: 'test',
             pageSize: 3,
             currentPage: 1,
@@ -60,7 +60,7 @@ describe('GraphqlDataProvider.getPosts tests', () => {
             posts: generateMockPosts(6),
         };
 
-        const response = await graphqlDataProvider.getPosts({
+        const response = await graphqlDataProvider.getAllFromStorage({
             pageSize: 3,
             currentPage: 1,
         });
@@ -80,7 +80,7 @@ describe('GraphqlDataProvider.getPosts tests', () => {
         const graphqlDataProvider = new GraphqlDataProvider(mockClient as any);
 
         await expect(
-            graphqlDataProvider.getPosts({
+            graphqlDataProvider.getAllFromStorage({
                 query: 'test',
                 pageSize: 3,
                 currentPage: 1,
@@ -100,7 +100,8 @@ describe('GraphqlDataProvider.getPost tests', () => {
 
         const graphqlDataProvider = new GraphqlDataProvider(mockClient as any);
 
-        const response = await graphqlDataProvider.getPost('test-post');
+        const response =
+            await graphqlDataProvider.getOneBySlugFromStorage('test-post');
 
         expect(response).toEqual(mockPost);
         expect(mockClient.query).toHaveBeenCalledWith({
@@ -118,7 +119,10 @@ describe('GraphqlDataProvider.getPost tests', () => {
 
         const graphqlDataProvider = new GraphqlDataProvider(mockClient as any);
 
-        const response = await graphqlDataProvider.getPost('non-existent-post');
+        const response =
+            await graphqlDataProvider.getOneBySlugFromStorage(
+                'non-existent-post',
+            );
 
         expect(response).toBeNull();
         expect(mockClient.query).toHaveBeenCalledWith({
@@ -134,7 +138,8 @@ describe('GraphqlDataProvider.getPost tests', () => {
 
         const graphqlDataProvider = new GraphqlDataProvider(mockClient as any);
 
-        const response = await graphqlDataProvider.getPost('test-post');
+        const response =
+            await graphqlDataProvider.getOneBySlugFromStorage('test-post');
 
         expect(response).toBeNull();
         expect(mockClient.query).toHaveBeenCalledWith({
