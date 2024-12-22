@@ -123,7 +123,7 @@ describe('Single Post Page', () => {
         };
 
         const expectedMetadata: Metadata = {
-            title: 'Post 1',
+            title: 'Post 1 | abelcastro.dev',
             description: 'Post 1 meta description',
         };
 
