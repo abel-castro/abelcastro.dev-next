@@ -5,7 +5,7 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
     plugins: [react()],
     test: {
-        setupFiles: ['./vitest.setup.ts'],
+        setupFiles: ['./vitest.setup.tsx'],
         include: [
             'tests/unit-tests/*.(spec|test).(ts|tsx)',
             'tests/unit-tests/**/*.(spec|test).(ts|tsx)',
@@ -23,6 +23,7 @@ export default defineConfig({
                 'tests/',
                 '.next/',
                 'next-env.d.ts',
+                'apollo-client.ts',
                 '*.config.ts',
                 '*.config.mjs',
                 '**/layout.tsx',

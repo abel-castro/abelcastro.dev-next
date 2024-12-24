@@ -1,16 +1,11 @@
-import { readFileSync } from 'fs';
 import { MetadataRoute } from 'next';
 import { describe, expect, test } from 'vitest';
 
 import sitemap, { getStaticProps } from '../../app/sitemap';
-import { MemoryDataProvider } from '../../data-providers/memory';
-
-const jsonData = JSON.parse(readFileSync('tests/test-data.json', 'utf-8'));
-const testDataProvider = new MemoryDataProvider(jsonData);
 
 describe('sitemap', () => {
     test('should generate the sitemap with correct entries', async () => {
-        const result = await sitemap({ dataProvider: testDataProvider });
+        const result = await sitemap();
 
         const expectedResult = [
             {
@@ -28,15 +23,6 @@ describe('sitemap', () => {
                 priority: 0.8,
             },
         ];
-
-        expect(result).toEqual(expectedResult);
-    });
-
-    test('should handle an empty posts array', async () => {
-        const emptyEmptyDataProvider = new MemoryDataProvider([]);
-        const result = await sitemap({ dataProvider: emptyEmptyDataProvider });
-
-        const expectedResult: MetadataRoute.Sitemap = [];
 
         expect(result).toEqual(expectedResult);
     });

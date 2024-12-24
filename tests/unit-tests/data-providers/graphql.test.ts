@@ -7,7 +7,7 @@ import {
     GET_POST_METADATA,
     GraphqlDataProvider,
 } from '../../../data-providers/graphql';
-import { generateMockPosts, generateMockRestAPIResponse } from '../utils';
+import { generateMockPosts } from '../utils';
 
 // Mock the global fetch function
 global.fetch = vi.fn();
