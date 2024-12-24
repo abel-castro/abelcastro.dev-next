@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { readFileSync } from 'fs';
 import { Metadata } from 'next';
 import React, { Suspense } from 'react';
 import { afterEach, describe, expect, test, vi } from 'vitest';
@@ -10,31 +9,6 @@ import SinglePostPage, {
 } from '../../app/[slug]/page';
 import Home from '../../app/page';
 import PrivacyPolicyPage from '../../app/privacy-policy/page';
-import activeDataProvider from '../../data-providers/active';
-import { MemoryDataProvider } from '../../data-providers/memory';
-
-//Mock Next.js useSearchParams
-vi.mock('next/navigation', () => {
-    const actual = vi.importActual('next/navigation');
-    return {
-        ...actual,
-        useRouter: vi.fn(() => ({
-            push: vi.fn(),
-        })),
-        useSearchParams: vi.fn(() => ({
-            get: vi.fn(),
-        })),
-        usePathname: vi.fn(),
-        notFound: vi.fn(),
-    };
-});
-
-vi.mock('next-mdx-remote/rsc', () => ({
-    MDXRemote: ({ source }: { source: string }) => <div>{source}</div>,
-}));
-
-const jsonData = JSON.parse(readFileSync('tests/test-data.json', 'utf-8'));
-const memoryDataProvider = new MemoryDataProvider(jsonData);
 
 describe('Home page', () => {
     afterEach(() => {
@@ -48,9 +22,6 @@ describe('Home page', () => {
             page: '1',
         };
 
-        vi.spyOn(activeDataProvider, 'getAllFromStorage').mockImplementation(
-            () => memoryDataProvider.getAllFromStorage(searchParams),
-        );
         const { container } = render(
             <Suspense>
                 <Home searchParams={searchParams} />
@@ -76,13 +47,6 @@ describe('Single Post Page', () => {
             slug: postSlug,
         };
 
-        vi.spyOn(
-            activeDataProvider,
-            'getOneBySlugFromStorage',
-        ).mockImplementation(() =>
-            memoryDataProvider.getOneBySlugFromStorage(postSlug),
-        );
-
         const { container } = render(
             <Suspense>
                 <SinglePostPage params={params} />
@@ -101,11 +65,6 @@ describe('Single Post Page', () => {
             slug: postSlug,
         };
 
-        vi.spyOn(
-            activeDataProvider,
-            'getOneBySlugFromStorage',
-        ).mockResolvedValue(null);
-
         const { container } = render(<SinglePostPage params={params} />);
 
         expect(container).toMatchSnapshot();
@@ -113,10 +72,6 @@ describe('Single Post Page', () => {
 
     test('generateMetadata should return metadata for a valid post', async () => {
         const postSlug = 'post-1';
-
-        vi.spyOn(activeDataProvider, 'getPostMetadata').mockImplementation(() =>
-            memoryDataProvider.getPostMetadata(postSlug),
-        );
 
         const props: SinglePostPageProps = {
             params: { slug: postSlug },
@@ -136,8 +91,6 @@ describe('Single Post Page', () => {
         const props: SinglePostPageProps = {
             params: { slug: 'non-existent-post' },
         };
-
-        vi.spyOn(activeDataProvider, 'getPostMetadata').mockResolvedValue(null);
 
         const result = await generateMetadata(props);
 
