@@ -1,12 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Home page > Home page component should match the snapshot 1`] = `
+exports[`Blog page > Blog page component should match the snapshot 1`] = `
 <div>
   <header
-    class="flex flex-col justify-between sm:flex-row sm:justify-between p-4 mb-8"
+    class="flex flex-col justify-between sm:flex-row sm:justify-between p-4"
   >
     <h1
-      class="text-3xl font-bold rainbow-text text-center sm:text-left"
+      class="text-3xl font-bold rainbow-text text-center sm:text-left content-center"
     >
       <a
         href=""
@@ -25,12 +25,12 @@ exports[`Home page > Home page component should match the snapshot 1`] = `
         Search
       </label>
       <input
-        class="peer block rounded border border-gray-200 py-[9px] lg:pl-8 pl-4 text-sm outline-2 text-gray-500 w-full max-w-xs"
+        class="peer block rounded border border-sky-500 focus:border-sky-700 py-[9px] lg:pl-8 pl-4 text-sm outline-2 dark:bg-slate-800 w-full max-w-xs"
         placeholder="Search in posts..."
       />
       <svg
         aria-hidden="true"
-        class="hidden lg:block absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900 "
+        class="hidden lg:block absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 "
         data-slot="icon"
         fill="none"
         stroke="currentColor"
@@ -61,7 +61,7 @@ exports[`Home page > Home page component should match the snapshot 1`] = `
           class="text-2xl font-bold mb-2 text-sky-500  hover:text-sky-700"
         >
           <a
-            href="post-1"
+            href="blog/post-1"
           >
             Post 1
           </a>
@@ -103,7 +103,7 @@ exports[`Home page > Home page component should match the snapshot 1`] = `
           class="text-2xl font-bold mb-2 text-sky-500  hover:text-sky-700"
         >
           <a
-            href="post-2"
+            href="blog/post-2"
           >
             Post 2
           </a>
@@ -205,11 +205,11 @@ exports[`Home page > Home page component should match the snapshot 1`] = `
   >
     <p>
       Abel Castro 
-      2024
-       - checkout the source code of this blog on
+      2025
+       - checkout the source code of this page on
        
       <a
-        class="footer-link text-teal-500 hover:text-teal-700"
+        class="footer-link link"
         href="https://github.com/abel-castro/abelcastro.dev-next"
         target="_blank"
       >
@@ -219,7 +219,7 @@ exports[`Home page > Home page component should match the snapshot 1`] = `
       -
        
       <a
-        class="footer-link text-teal-500 hover:text-teal-700"
+        class="footer-link link"
         href="/privacy-policy"
       >
         Privacy Policy
@@ -227,6 +227,408 @@ exports[`Home page > Home page component should match the snapshot 1`] = `
        
     </p>
   </footer>
+</div>
+`;
+
+exports[`Home page > Home page component should match the snapshot 1`] = `
+<div>
+  <header
+    class="flex flex-col justify-between sm:flex-row sm:justify-between pl-4 pr-4"
+  >
+    <h1
+      class="text-3xl font-bold rainbow-text text-center sm:text-left content-center"
+    >
+      <a
+        href=""
+      >
+        abelcastro.dev
+      </a>
+    </h1>
+    <div
+      class="relative flex mt-4 sm:mt-0 w-full sm:w-auto sm:flex justify-center"
+    >
+      <ul
+        class="menu menu-vertical sm:menu-horizontal font-bold text-lg link"
+      >
+        <li>
+          <a
+            href="#about-me"
+          >
+            About me
+          </a>
+        </li>
+        <li>
+          <a
+            href="#blog"
+          >
+            My blog
+          </a>
+        </li>
+        <li>
+          <a
+            href="#projects"
+          >
+            My projects
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <main
+    class="lg:container mx-auto lg:max-w-8xl"
+  >
+    <div
+      class="md:container md:max-w-5xl mx-auto hero min-h-screen"
+      id="about-me"
+    >
+      <div
+        class="hero-content flex-col md:flex-row-reverse"
+      >
+        <img
+          alt="My younger self lifting bananas"
+          class="max-w-md mask mask-hexagon shadow-2xl p-6"
+          data-nimg="1"
+          decoding="async"
+          height="600"
+          loading="lazy"
+          src="/_next/image?url=%2Fpublic%2Fimages%2Fbanana-lifting.jpg&w=1200&q=75"
+          srcset="/_next/image?url=%2Fpublic%2Fimages%2Fbanana-lifting.jpg&w=640&q=75 1x, /_next/image?url=%2Fpublic%2Fimages%2Fbanana-lifting.jpg&w=1200&q=75 2x"
+          style="color: transparent;"
+          width="600"
+        />
+        <div>
+          <p
+            class="text-xl"
+          >
+            Hi! I’m 
+            <span
+              class="font-bold"
+            >
+              Abel
+            </span>
+            , a
+             
+            <span
+              class="font-bold"
+            >
+              Full Stack Developer
+            </span>
+             
+            who loves coding and technology in general.
+          </p>
+          <p
+            class="py-6"
+          >
+            That guy in the picture is me, back in 2008, before I began to code. I come from the beautiful Canary Island La Palma but for several years now, I have made Austria my home.
+          </p>
+          <p>
+            Throughout most of my career, I was quite focused on developing with
+             
+            <span
+              class="font-bold"
+            >
+              Python
+            </span>
+             and
+             
+            <span
+              class="font-bold"
+            >
+              Django
+            </span>
+            , but in the last years, I have been learned to love
+            <span
+              class="font-bold"
+            >
+              TypeScript
+            </span>
+             
+            and frameworks like
+             
+            <span
+              class="font-bold"
+            >
+              Next.js
+            </span>
+             and
+             
+            <span
+              class="font-bold"
+            >
+              NestJS
+            </span>
+            .
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr
+      class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-50 dark:via-sky-300"
+    />
+    <div
+      class="md:container md:max-w-5xl mx-auto hero min-h-screen"
+      id="blog"
+    >
+      <div
+        class="hero-content"
+      >
+        <div>
+          <h2
+            class="text-3xl font-bold py-6"
+          >
+            My blog
+          </h2>
+          <p
+            class="pb-3"
+          >
+            In my blog I (and LLMs 🤖) write about coding-related topics.
+          </p>
+          <p>
+            The primary goal of my blog has always been to experiment and explore new technologies rather than getting more views.
+          </p>
+          <p>
+            The initial version of my blog was launched in 2021 using Django, Django templates, and Bootstrap. Over time, the blog evolved significantly: it incorporated htmx and even implemented a REST API. Both the blog and this page were part of the same Django project.
+          </p>
+          <p
+            class="pb-3 pt-3"
+          >
+            But similarly to my career path, the blog and the frameworks I work with have evolved significantly. When I discovered the charm of Next.js, I decided to re-implement it using Next.js. Check it out using the link below!
+          </p>
+          <p>
+            Please note that all opinions expressed on the blog are my own.
+          </p>
+          <a
+            class="btn text-white bg-sky-500 hover:bg-sky-700 mt-6"
+            href="/blog"
+          >
+            To the blog 🚀
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr
+      class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-50 dark:via-sky-300"
+    />
+    <div
+      class="md:container md:max-w-5xl mx-auto hero min-h-screen mb-10"
+      id="projects"
+    >
+      <div
+        class="hero-content"
+      >
+        <div>
+          <h2
+            class="text-3xl font-bold py-6"
+          >
+            My projects
+          </h2>
+          <div
+            class="columns-3xs"
+          >
+            <div
+              class="card mb-6 dark:bg-slate-800 shadow-xl w-full aspect-square undefined"
+            >
+              <figure>
+                <img
+                  alt="Fasting Timer 18:6"
+                  data-nimg="1"
+                  decoding="async"
+                  height="250"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fgithub.com%2Fabel-castro%2Ffasting-timer%2Fblob%2Fmain%2Ffasting-timer-screenshot.jpg%3Fraw%3Dtrue&w=828&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fgithub.com%2Fabel-castro%2Ffasting-timer%2Fblob%2Fmain%2Ffasting-timer-screenshot.jpg%3Fraw%3Dtrue&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fgithub.com%2Fabel-castro%2Ffasting-timer%2Fblob%2Fmain%2Ffasting-timer-screenshot.jpg%3Fraw%3Dtrue&w=828&q=75 2x"
+                  style="color: transparent;"
+                  width="400"
+                />
+              </figure>
+              <div
+                class="card-body"
+              >
+                <h2
+                  class="card-title"
+                >
+                  Fasting Timer 18:6
+                </h2>
+                <p>
+                  Is a simple application designed to help users manage their intermittent fasting schedules.  I used React and Next.js to build it.
+                </p>
+                <div
+                  class="mt-3 card-actions justify-end"
+                >
+                  <a
+                    class="btn text-white bg-sky-500 hover:bg-sky-700 "
+                    href="/blog/building-fasting-timer-for-learning-react-nextjs"
+                  >
+                    Read more
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card mb-6 dark:bg-slate-800 shadow-xl w-full aspect-square undefined"
+            >
+              <figure>
+                <img
+                  alt="Sports Dashboard"
+                  data-nimg="1"
+                  decoding="async"
+                  height="250"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fi.imgur.com%2FZchxi4B.png&w=828&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fi.imgur.com%2FZchxi4B.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.imgur.com%2FZchxi4B.png&w=828&q=75 2x"
+                  style="color: transparent;"
+                  width="400"
+                />
+              </figure>
+              <div
+                class="card-body"
+              >
+                <h2
+                  class="card-title"
+                >
+                  Sports Dashboard
+                </h2>
+                <p>
+                  Displays the results and standings of the most popular sports leagues. Made with an Angular frontend and a Django backend.
+                </p>
+                <div
+                  class="mt-3 card-actions justify-end"
+                >
+                  <a
+                    class="btn text-white bg-sky-500 hover:bg-sky-700 "
+                    href="/blog/sports-dashboard-displays-last-matchday-results"
+                  >
+                    Read more
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card mb-6 dark:bg-slate-800 shadow-xl w-full aspect-square undefined"
+            >
+              <figure>
+                <img
+                  alt="Basic analytics"
+                  data-nimg="1"
+                  decoding="async"
+                  height="250"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fi.imgur.com%2FvqKIa0M.png&w=828&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fi.imgur.com%2FvqKIa0M.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.imgur.com%2FvqKIa0M.png&w=828&q=75 2x"
+                  style="color: transparent;"
+                  width="400"
+                />
+              </figure>
+              <div
+                class="card-body"
+              >
+                <h2
+                  class="card-title"
+                >
+                  Basic analytics
+                </h2>
+                <p>
+                   My self made and hosted alternative to Google Analytics. Made with Django, DRF, Bootstrap and Chart.js.
+                </p>
+                <div
+                  class="mt-3 card-actions justify-end"
+                >
+                  <a
+                    class="btn text-white bg-sky-500 hover:bg-sky-700 "
+                    href="/blog/my-self-made-hosted-google-analytics-alternative"
+                  >
+                    Read more
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card mb-6 dark:bg-slate-800 shadow-xl w-full aspect-square undefined"
+            >
+              <figure>
+                <img
+                  alt="Kudos-Box"
+                  data-nimg="1"
+                  decoding="async"
+                  height="250"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fraw.githubusercontent.com%2Fabel-castro%2Fkudos-box%2Fmain%2Fscreenshot.jpg&w=828&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fraw.githubusercontent.com%2Fabel-castro%2Fkudos-box%2Fmain%2Fscreenshot.jpg&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fraw.githubusercontent.com%2Fabel-castro%2Fkudos-box%2Fmain%2Fscreenshot.jpg&w=828&q=75 2x"
+                  style="color: transparent;"
+                  width="400"
+                />
+              </figure>
+              <div
+                class="card-body"
+              >
+                <h2
+                  class="card-title"
+                >
+                  Kudos-Box
+                </h2>
+                <p>
+                  Anonymously send kudos to your colleagues and friends. The project is not online anymore but the source code is available on GitHub.
+                </p>
+                <div
+                  class="mt-3 card-actions justify-end"
+                >
+                  <a
+                    class="btn text-white bg-sky-500 hover:bg-sky-700 "
+                    href="https://github.com/abel-castro/kudos-box/"
+                  >
+                    Read more
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card mb-6 dark:bg-slate-800 shadow-xl w-full aspect-square undefined"
+            >
+              <div
+                class="card-body"
+              >
+                <h2
+                  class="card-title"
+                >
+                  Other Stuff
+                </h2>
+                <p>
+                  I regularly work on other projects and experiment with new ideas. Check out my GitHub profile to see what I’ve been up to.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer
+      class="text-slate-300 p-4 text-center text-sm"
+    >
+      <p>
+        Abel Castro 
+        2025
+         - checkout the source code of this page on
+         
+        <a
+          class="footer-link link"
+          href="https://github.com/abel-castro/abelcastro.dev-next"
+          target="_blank"
+        >
+          GitHub
+        </a>
+         
+        -
+         
+        <a
+          class="footer-link link"
+          href="/privacy-policy"
+        >
+          Privacy Policy
+        </a>
+         
+      </p>
+    </footer>
+  </main>
 </div>
 `;
 

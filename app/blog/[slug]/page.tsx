@@ -1,7 +1,8 @@
-import PostSingle from '@/app/components/posts/post-single';
-import activeDataProvider from '@/data-providers/active';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+import activeDataProvider from '../../../data-providers/active';
+import PostSingle from '../../components/posts/post-single';
 
 export interface SinglePostPageProps {
     params: { slug: string };

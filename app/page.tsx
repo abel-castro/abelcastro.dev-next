@@ -7,7 +7,7 @@ import ProjectCard from './components/project-card';
 import Separator from './components/separator';
 import bananaLifting from '/public/images/banana-lifting.jpg';
 
-export default async function Home() {
+export default function Home() {
     return (
         <>
             <HomeHeader />
