@@ -15,7 +15,7 @@ export default function PostTitle({
                 hasLink ? 'hover:text-sky-700' : ''
             }`}
         >
-            {hasLink ? <Link href={slug}>{title}</Link> : title}
+            {hasLink ? <Link href={`blog/${slug}`}>{title}</Link> : title}
         </h2>
     );
 }
