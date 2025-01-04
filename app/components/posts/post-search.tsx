@@ -23,7 +23,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
     const handleSearch = useDebouncedCallback((term) => {
         const params = getSearchParams(searchParams, term);
-        replace(`/?${params.toString()}`);
+        replace(`/blog/?${params.toString()}`);
     }, 300);
 
     return (
@@ -35,14 +35,14 @@ export default function Search({ placeholder }: { placeholder: string }) {
                 Search
             </label>
             <input
-                className="peer block rounded border border-gray-200 py-[9px] lg:pl-8 pl-4 text-sm outline-2 text-gray-500 w-full max-w-xs"
+                className="peer block rounded border border-sky-500 py-[9px] lg:pl-8 pl-4 text-sm outline-2 dark:bg-slate-800 w-full max-w-xs"
                 placeholder={placeholder}
                 onChange={(e) => {
                     handleSearch(e.target.value);
                 }}
                 defaultValue={searchParams.get('query')?.toString()}
             />
-            <MagnifyingGlassIcon className="hidden lg:block absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900 " />
+            <MagnifyingGlassIcon className="hidden lg:block absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 " />
         </form>
     );
 }

@@ -1,7 +1,7 @@
 import { Post } from '@/app/lib/definitions';
 import { Fragment } from 'react';
 
-import PostSeparator from './post-separator';
+import Separator from '../separator';
 import PostSingle from './post-single';
 
 export default function PostList({ posts }: { posts: Post[] }) {
@@ -17,7 +17,7 @@ export default function PostList({ posts }: { posts: Post[] }) {
                         tags={post.tags}
                         content={post.content}
                     />
-                    {index < 2 && <PostSeparator />}
+                    {index < 2 && <Separator />}
                 </Fragment>
             ))}
         </>

@@ -1,6 +1,6 @@
-import BlogFooter from '../components/blog-footer';
-import BlogHeader from '../components/blog-header';
-import '../globals.css';
+import BlogHeader from '@/app/components/blog-header';
+import BlogFooter from '@/app/components/footer';
+import '@/app/globals.css';
 
 export default function Layout({
     children,
