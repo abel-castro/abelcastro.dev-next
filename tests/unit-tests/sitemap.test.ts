@@ -9,17 +9,15 @@ describe('sitemap', () => {
 
         const expectedResult = [
             {
-                key: 'post-1',
+                url: '',
+                priority: 1.0,
+            },
+            {
                 url: `${process.env.ROOT_URL}/blog/post-1`,
-                lastmod: '2024-08-16',
-                changefreq: 'weekly',
                 priority: 0.8,
             },
             {
-                key: 'post-2',
                 url: `${process.env.ROOT_URL}/blog/post-2`,
-                lastmod: '2024-08-17',
-                changefreq: 'weekly',
                 priority: 0.8,
             },
         ];

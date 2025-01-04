@@ -32,6 +32,7 @@ export default defineConfig({
                 '**/definitions.ts',
                 '**/loading.tsx',
                 '**/skeletons.tsx',
+                'playwright-report/',
             ],
         },
     },
