@@ -21,8 +21,8 @@ export default function Home() {
                             className="max-w-md mask mask-hexagon shadow-2xl p-6"
                             src={bananaLifting}
                             alt="My younger self lifting bananas"
-                            width={600}
-                            height={600}
+                            width={800}
+                            height={800}
                         />
                         <div>
                             <p className="text-xl">

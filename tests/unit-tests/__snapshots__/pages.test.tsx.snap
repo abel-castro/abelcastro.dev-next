@@ -25,7 +25,7 @@ exports[`Blog page > Blog page component should match the snapshot 1`] = `
         Search
       </label>
       <input
-        class="peer block rounded border border-sky-500 focus:border-sky-700 py-[9px] lg:pl-8 pl-4 text-sm outline-2 dark:bg-slate-800 w-full max-w-xs"
+        class="peer block rounded border border-sky-500 py-[9px] lg:pl-8 pl-4 text-sm outline-2 dark:bg-slate-800 w-full max-w-xs"
         placeholder="Search in posts..."
       />
       <svg
@@ -289,12 +289,12 @@ exports[`Home page > Home page component should match the snapshot 1`] = `
           class="max-w-md mask mask-hexagon shadow-2xl p-6"
           data-nimg="1"
           decoding="async"
-          height="600"
+          height="800"
           loading="lazy"
-          src="/_next/image?url=%2Fpublic%2Fimages%2Fbanana-lifting.jpg&w=1200&q=75"
-          srcset="/_next/image?url=%2Fpublic%2Fimages%2Fbanana-lifting.jpg&w=640&q=75 1x, /_next/image?url=%2Fpublic%2Fimages%2Fbanana-lifting.jpg&w=1200&q=75 2x"
+          src="/_next/image?url=%2Fpublic%2Fimages%2Fbanana-lifting.jpg&w=1920&q=75"
+          srcset="/_next/image?url=%2Fpublic%2Fimages%2Fbanana-lifting.jpg&w=828&q=75 1x, /_next/image?url=%2Fpublic%2Fimages%2Fbanana-lifting.jpg&w=1920&q=75 2x"
           style="color: transparent;"
-          width="600"
+          width="800"
         />
         <div>
           <p
