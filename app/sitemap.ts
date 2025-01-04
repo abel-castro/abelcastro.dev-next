@@ -8,11 +8,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const posts = postsResponse.posts;
 
     return [
+        {
+            url: process.env.ROOT_URL || '',
+            priority: 1.0,
+        },
         ...posts.map((post: Post) => ({
-            key: post.slug,
             url: `${process.env.ROOT_URL}/blog/${post.slug}`,
-            lastmod: post.date,
-            changefreq: 'weekly',
             priority: 0.8,
         })),
     ];
