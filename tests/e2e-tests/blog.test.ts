@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test('main elements are visible', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/blog');
 
     await expect(page).toHaveTitle(/abelcastro.dev/);
     await expect(
@@ -41,7 +41,7 @@ test('main elements are visible', async ({ page }) => {
 });
 
 test('search works', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/blog');
 
     await expect(page.getByTestId('search-form')).toBeVisible();
     await page
