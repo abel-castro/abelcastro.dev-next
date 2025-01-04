@@ -51,6 +51,7 @@ const config: Config = {
                             content: 'none',
                         },
                         a: {
+                            textDecoration: 'none',
                             color: theme('colors.teal.500'),
                             '&:hover': {
                                 color: theme('colors.teal.700'),
@@ -73,6 +74,7 @@ const config: Config = {
         require('@tailwindcss/typography')({
             className: 'from-markdown',
         }),
+        require('daisyui'),
     ],
 };
 export default config;

@@ -6,17 +6,25 @@ import { afterEach, describe, expect, test, vi } from 'vitest';
 import SinglePostPage, {
     SinglePostPageProps,
     generateMetadata,
-} from '../../app/[slug]/page';
+} from '../../app/blog/[slug]/page';
+import BlogHome from '../../app/blog/page';
 import Home from '../../app/page';
 import PrivacyPolicyPage from '../../app/privacy-policy/page';
 
 describe('Home page', () => {
+    test('Home page component should match the snapshot', async () => {
+        const { container } = render(<Home />);
+
+        expect(container).toMatchSnapshot();
+    });
+});
+describe('Blog page', () => {
     afterEach(() => {
         vi.clearAllMocks();
         vi.resetAllMocks();
     });
 
-    test('Home page component should match the snapshot', async () => {
+    test('Blog page component should match the snapshot', async () => {
         const searchParams = {
             query: '',
             page: '1',
@@ -24,7 +32,7 @@ describe('Home page', () => {
 
         const { container } = render(
             <Suspense>
-                <Home searchParams={searchParams} />
+                <BlogHome searchParams={searchParams} />
             </Suspense>,
         );
 

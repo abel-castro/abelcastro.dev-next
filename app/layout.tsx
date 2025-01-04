@@ -9,12 +9,9 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    title: {
-        template: '%s | abelcastro.dev',
-        default: 'abelcastro.dev',
-    },
+    title: 'abelcastro.dev',
     description:
-        'My personal blog where I (and LLMs 🤖) write about coding-related topics.',
+        'Hi! I’m Abel, a Full Stack Developer who loves coding and technology in general.',
 };
 
 export default function RootLayout({
