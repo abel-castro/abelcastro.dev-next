@@ -286,7 +286,7 @@ exports[`Home page > Home page component should match the snapshot 1`] = `
       >
         <img
           alt="My younger self lifting bananas"
-          class="max-w-md mask mask-hexagon shadow-2xl p-6"
+          class="w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[800px] mask mask-hexagon shadow-2xl p-6"
           data-nimg="1"
           decoding="async"
           height="800"
