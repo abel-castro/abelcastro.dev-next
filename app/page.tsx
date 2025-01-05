@@ -18,7 +18,7 @@ export default function Home() {
                 >
                     <div className="hero-content flex-col md:flex-row-reverse">
                         <Image
-                            className="max-w-md mask mask-hexagon shadow-2xl p-6"
+                            className="w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[800px] mask mask-hexagon shadow-2xl p-6"
                             src={bananaLifting}
                             alt="My younger self lifting bananas"
                             width={800}

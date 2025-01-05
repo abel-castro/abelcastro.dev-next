@@ -35,7 +35,7 @@ export default async function BlogHome({ searchParams }: HomeProps) {
         query: query,
     };
     const { posts, totalPages } =
-        await activeDataProvider.getAllFromStorage(options);
+        await activeDataProvider.getAll(options);
 
     return (
         <>
