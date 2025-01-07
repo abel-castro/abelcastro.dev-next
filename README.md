@@ -1,16 +1,14 @@
 [![codecov](https://codecov.io/github/abel-castro/abelcastro.dev-next/branch/main/graph/badge.svg)](github/abel-castro/abelcastro.dev-next)
 
-# blog.abelcastro.dev
+# abelcastro.dev
 
-The first version of my blog was developed with Django (see more here https://github.com/abel-castro/abelcastro.dev).
-In this repository I re-imagined it using [Next.js](https://nextjs.org/).
-
-In this first version, it fetches the posts from the REST-API described in https://github.com/abel-castro/abelcastro.dev?tab=readme-ov-file#api.
+This is the source code of my home page and blog currently hosted in https://abelcastro.dev.
 
 Features:
 
--   Next.js
+-   [Next.js](https://nextjs.org/)
 -   [Tailwind CSS](https://tailwindcss.com)
+-   [Daisy UI](https://daisyui.com/)
 -   [dotenv](https://www.npmjs.com/package/dotenv)
 
 This project was bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
@@ -68,44 +66,6 @@ Run with UI:
 ```sh
 pnpm exec playwright test --ui
 ```
-
-## Ressources
-
-### Render Markdwon with MDX
-
-https://nextjs.org/docs/pages/building-your-application/configuring/mdx#remote-mdx
-
-### Highlight markdown content
-
-https://gaudion.dev/blog/mdx-syntax-highlighting
-
-### Tailwind colors
-
-https://tailwindcss.com/docs/background-color
-
-### Next.js metadata
-
-https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-
-## Ressources
-
-### Render Markdwon with MDX
-
-https://nextjs.org/docs/pages/building-your-application/configuring/mdx#remote-mdx
-
-### Highlight markdown content
-
-https://gaudion.dev/blog/mdx-syntax-highlighting
-
-### Tailwind colors
-
-https://tailwindcss.com/docs/background-color
-
-### Next.js metadata
-
-https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-
-### Run playwright on Gitlab
 
 ## Ressources
 
