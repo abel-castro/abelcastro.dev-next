@@ -8,7 +8,7 @@ export default function Layout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="min-h-screen flex flex-col dark:bg-slate-900">
+        <div className="min-h-screen flex flex-col bg-slate-900">
             <BlogHeader />
             <div className="flex-grow p-4">
                 <div className="max-w-4xl mx-auto">{children}</div>

@@ -13,7 +13,7 @@ exports[`Search Component > should render the search component matching the snap
       Search
     </label>
     <input
-      class="peer block rounded border border-sky-500 py-[9px] lg:pl-8 pl-4 text-sm outline-2 dark:bg-slate-800 w-full max-w-xs"
+      class="peer block rounded border border-sky-500 py-[9px] lg:pl-8 pl-4 text-sm outline-2 bg-slate-800 w-full max-w-xs"
       placeholder="Search posts"
     />
     <svg

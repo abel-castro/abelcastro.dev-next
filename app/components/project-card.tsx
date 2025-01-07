@@ -22,7 +22,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
     return (
         <div
-            className={`card mb-6 dark:bg-slate-800 shadow-xl w-full aspect-square ${extraClasses}`}
+            className={`card mb-6 bg-slate-800 shadow-xl w-full aspect-square ${extraClasses}`}
         >
             {imageSrc && imageAlt && (
                 <figure>

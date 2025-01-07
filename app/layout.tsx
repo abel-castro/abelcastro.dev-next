@@ -22,7 +22,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${inter.className} antialiased min-h-screen flex flex-col dark:bg-slate-900`}
+                className={`${inter.className} antialiased min-h-screen flex flex-col dark text-white bg-slate-900`}
             >
                 {children}
                 <Analytics />
