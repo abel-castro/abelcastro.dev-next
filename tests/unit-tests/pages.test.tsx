@@ -88,6 +88,9 @@ describe('Single Post Page', () => {
         const expectedMetadata: Metadata = {
             title: 'Post 1 | abelcastro.dev',
             description: 'Post 1 meta description',
+            alternates: {
+                canonical: '/blog/post-1',
+            },
         };
 
         const result = await generateMetadata(props);

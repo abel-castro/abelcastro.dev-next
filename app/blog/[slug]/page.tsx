@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Head from 'next/head';
 import { notFound } from 'next/navigation';
 
 import activeDataProvider from '../../../data-providers/active';
@@ -13,6 +14,8 @@ export async function generateMetadata({
 }: SinglePostPageProps): Promise<Metadata | null> {
     const slug = params.slug;
     const post = await activeDataProvider.getPostMetadata(slug);
+    const rootURL = process.env.ROOT_URL ?? '';
+    const canonicalUrl = `${rootURL}/blog/${slug}`;
 
     if (!post) {
         notFound();
@@ -22,6 +25,9 @@ export async function generateMetadata({
     return {
         title: `${post.title} | abelcastro.dev`,
         description: post.meta_description,
+        alternates: {
+            canonical: canonicalUrl,
+        },
     };
 }
 

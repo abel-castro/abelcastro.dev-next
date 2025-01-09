@@ -9,13 +9,13 @@ import PostList from '../components/posts/post-list';
 import Pagination from '../components/posts/post-pagination';
 import { PostListSkeleton } from '../components/posts/skeletons';
 
-export type HomeSearchParams = {
+export type BlogHomeSearchParams = {
     query?: string;
     page?: string;
 };
 
-interface HomeProps {
-    searchParams: HomeSearchParams;
+interface BlogHomeProps {
+    searchParams: BlogHomeSearchParams;
 }
 
 export const metadata: Metadata = {
@@ -27,15 +27,14 @@ export const metadata: Metadata = {
         'My personal blog where I (and LLMs 🤖) write about coding-related topics.',
 };
 
-export default async function BlogHome({ searchParams }: HomeProps) {
+export default async function BlogHome({ searchParams }: BlogHomeProps) {
     const query = searchParams?.query || '';
     const currentPage = Number(searchParams?.page) || 1;
     const options: PostSearchOptions = {
         currentPage: currentPage,
         query: query,
     };
-    const { posts, totalPages } =
-        await activeDataProvider.getAll(options);
+    const { posts, totalPages } = await activeDataProvider.getAll(options);
 
     return (
         <>
