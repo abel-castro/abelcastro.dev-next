@@ -120,6 +120,15 @@ export default function Home() {
 
                             <div className="columns-3xs">
                                 <ProjectCard
+                                    title="Sports Dashboard"
+                                    description="Displays the results and standings of the most popular football
+                leagues in Europa. Made with NextJS and Django."
+                                    imageSrc="https://i.imgur.com/0xAB9Pm.png"
+                                    imageAlt="Sports Dashboard"
+                                    buttonText="Read more"
+                                    buttonHref="https://abelcastro.dev/blog/rebuilding-sports-dashboard-angular-to-nextjs"
+                                />
+                                <ProjectCard
                                     title="Fasting Timer 18:6"
                                     description="Is a simple application designed to help users manage their intermittent fasting schedules. 
                 I used React and Next.js to build it."
@@ -127,15 +136,6 @@ export default function Home() {
                                     imageAlt="Fasting Timer 18:6"
                                     buttonText="Read more"
                                     buttonHref="/blog/building-fasting-timer-for-learning-react-nextjs"
-                                />
-                                <ProjectCard
-                                    title="Sports Dashboard"
-                                    description="Displays the results and standings of the most popular sports
-                leagues. Made with an Angular frontend and a Django backend."
-                                    imageSrc="https://i.imgur.com/Zchxi4B.png"
-                                    imageAlt="Sports Dashboard"
-                                    buttonText="Read more"
-                                    buttonHref="/blog/sports-dashboard-displays-last-matchday-results"
                                 />
                                 <ProjectCard
                                     title="Basic analytics"
