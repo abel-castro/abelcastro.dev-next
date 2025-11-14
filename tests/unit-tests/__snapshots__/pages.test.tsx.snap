@@ -112,330 +112,857 @@ exports[`Home page > Home page component should match the snapshot 1`] = `
   <main
     class="lg:container mx-auto lg:max-w-8xl"
   >
-    <div
-      class="md:container md:max-w-5xl mx-auto hero min-h-screen"
+    <section
+      class="min-h-screen flex items-center justify-center bg-linear-to-br from-background to-muted"
+      id="hero"
+    >
+      <div
+        class="container mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div
+          class="flex flex-col lg:flex-row items-center justify-between gap-12"
+        >
+          <div
+            class="flex-1 text-center lg:text-left animate-fade-in-up"
+          >
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance"
+            >
+              Hi! I'm 
+              <span
+                class="text-accent"
+              >
+                Abel
+              </span>
+              , a Full Stack
+               
+              <span
+                class="text-accent"
+              >
+                Developer
+              </span>
+            </h1>
+            <p
+              class="text-xl text-muted-foreground mb-8 max-w-2xl text-pretty"
+            >
+              That guy in the picture is me, back in 2008, before I began to code. I come from the beautiful Canary Island La Palma but for several years now, I have made Austria my home.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
+              <button
+                class="inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-teal-600 text-white hover:bg-teal-700 focus:ring-teal-500 px-6 py-3 text-lg group"
+              >
+                Learn More About Me
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-arrow-down ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 5v14"
+                  />
+                  <path
+                    d="m19 12-7 7-7-7"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div
+            class="flex-shrink-0 animate-float"
+          >
+            <div
+              class="relative"
+            >
+              <div
+                class="w-80 h-80 rounded-full overflow-hidden border-4 border-cyan-900 shadow-2xl"
+              >
+                <img
+                  alt="Abel Castro - Full Stack Developer"
+                  class="w-full h-full object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="320"
+                  src="/_next/image?url=%2Fimages%2Fbanana-lifting.jpg&w=640&q=75"
+                  srcset="/_next/image?url=%2Fimages%2Fbanana-lifting.jpg&w=384&q=75 1x, /_next/image?url=%2Fimages%2Fbanana-lifting.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="320"
+                />
+              </div>
+              <div
+                class="absolute -top-4 -right-4 w-24 h-24 bg-accent/10 rounded-full blur-xl"
+              />
+              <div
+                class="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/5 rounded-full blur-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr
+      class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-teal-400 to-transparent opacity-50"
+    />
+    <section
+      class="py-20 bg-muted/30"
       id="about-me"
     >
       <div
-        class="hero-content flex-col md:flex-row-reverse"
+        class="container mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <img
-          alt="My younger self lifting bananas"
-          class="w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[800px] mask mask-hexagon shadow-2xl p-6"
-          data-nimg="1"
-          decoding="async"
-          height="800"
-          loading="lazy"
-          src="/_next/image?url=%2Fpublic%2Fimages%2Fbanana-lifting.jpg&w=1920&q=75"
-          srcset="/_next/image?url=%2Fpublic%2Fimages%2Fbanana-lifting.jpg&w=828&q=75 1x, /_next/image?url=%2Fpublic%2Fimages%2Fbanana-lifting.jpg&w=1920&q=75 2x"
-          style="color: transparent;"
-          width="800"
-        />
-        <div>
-          <p
-            class="text-xl"
-          >
-            Hi! I’m 
-            <span
-              class="font-bold"
-            >
-              Abel
-            </span>
-            , a
-             
-            <span
-              class="font-bold"
-            >
-              Full Stack Developer
-            </span>
-             
-            who loves coding and technology in general.
-          </p>
-          <p
-            class="py-6"
-          >
-            That guy in the picture is me, back in 2008, before I began to code. I come from the beautiful Canary Island La Palma but for several years now, I have made Austria my home.
-          </p>
-          <p>
-            Throughout most of my career, I was quite focused on developing with
-             
-            <span
-              class="font-bold"
-            >
-              Python
-            </span>
-             and
-             
-            <span
-              class="font-bold"
-            >
-              Django
-            </span>
-            , but in the last years, I have been learned to love
-            <span
-              class="font-bold"
-            >
-              TypeScript
-            </span>
-             
-            and frameworks like
-             
-            <span
-              class="font-bold"
-            >
-              Next.js
-            </span>
-             and
-             
-            <span
-              class="font-bold"
-            >
-              NestJS
-            </span>
-            .
-          </p>
-        </div>
-      </div>
-    </div>
-    <hr
-      class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-50"
-    />
-    <div
-      class="md:container md:max-w-5xl mx-auto hero min-h-screen"
-      id="blog"
-    >
-      <div
-        class="hero-content"
-      >
-        <div>
+        <div
+          class="text-center mb-16"
+        >
           <h2
-            class="text-3xl font-bold py-6"
+            class="text-3xl sm:text-4xl font-bold text-foreground mb-4"
           >
-            My blog
+            About Me
           </h2>
           <p
-            class="pb-3"
+            class="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty"
           >
-            In my blog I (and LLMs 🤖) write about coding-related topics.
+            I'm passionate about creating innovative solutions mostly using languages like Python and TypeScript. I build robust, well-tested applications and follow Test-Driven Development (TDD) practices.
           </p>
-          <p>
-            The primary goal of my blog has always been to experiment and explore new technologies rather than getting more views.
-          </p>
-          <p>
-            The initial version of my blog was launched in 2021 using Django, Django templates, and Bootstrap. Over time, the blog evolved significantly: it incorporated htmx and even implemented a REST API. Both the blog and this page were part of the same Django project.
-          </p>
-          <p
-            class="pb-3 pt-3"
-          >
-            But similarly to my career path, the blog and the frameworks I work with have evolved significantly. When I discovered the charm of Next.js, I decided to re-implement it using Next.js. Check it out using the link below!
-          </p>
-          <p>
-            Please note that all opinions expressed on the blog are my own.
-          </p>
-          <a
-            class="btn text-white bg-sky-500 hover:bg-sky-700 border-sky-700 hover:border-sky-700 mt-6"
-            href="/blog"
-          >
-            To the blog 🚀
-          </a>
         </div>
-      </div>
-    </div>
-    <hr
-      class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-50"
-    />
-    <div
-      class="md:container md:max-w-5xl mx-auto hero min-h-screen mb-10"
-      id="projects"
-    >
-      <div
-        class="hero-content"
-      >
-        <div>
-          <h2
-            class="text-3xl font-bold py-6"
-          >
-            My projects
-          </h2>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16"
+        >
           <div
-            class="columns-3xs"
+            class="space-y-6"
+          >
+            <h3
+              class="text-2xl font-semibold text-foreground"
+            >
+              My Journey
+            </h3>
+            <p
+              class="text-muted-foreground leading-relaxed"
+            >
+              In my more than 10 years as a Full Stack Developer, I've had the privilege of working with many smart and talented people. Thanks to them, I've learned to see software development as a craft that requires dedication, continuous learning, and great attention to detail.
+            </p>
+            <p
+              class="text-muted-foreground leading-relaxed"
+            >
+              At the same time, I've learned that building software is a team effort that depends on collaboration, clear communication, and empathy. It's crucial to find the right balance between these aspects to deliver successful solutions while maintaining a sense of fulfillment and confidence in the work we do.
+            </p>
+            <p
+              class="text-muted-foreground leading-relaxed"
+            >
+              These learnings form the foundation of my approach to software development: craftsmanship, collaboration, and a strong focus on delivering real value.
+            </p>
+          </div>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 gap-6"
           >
             <div
-              class="card mb-6 bg-slate-800 shadow-xl w-full aspect-square undefined"
+              class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-teal-900 py-6 shadow-sm group hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              data-slot="card"
             >
-              <figure>
-                <img
-                  alt="Sports Dashboard"
-                  data-nimg="1"
-                  decoding="async"
-                  height="250"
-                  loading="lazy"
-                  src="/_next/image?url=https%3A%2F%2Fi.imgur.com%2F0xAB9Pm.png&w=828&q=75"
-                  srcset="/_next/image?url=https%3A%2F%2Fi.imgur.com%2F0xAB9Pm.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.imgur.com%2F0xAB9Pm.png&w=828&q=75 2x"
-                  style="color: transparent;"
-                  width="400"
-                />
-              </figure>
               <div
-                class="card-body"
+                class="p-6 text-center"
+                data-slot="card-content"
               >
-                <h2
-                  class="card-title"
-                >
-                  Sports Dashboard
-                </h2>
-                <p>
-                  Displays the results and standings of the most popular football leagues in Europa. Made with NextJS and Django.
-                </p>
                 <div
-                  class="mt-3 card-actions justify-end"
+                  class="text-accent mb-4 flex justify-center group-hover:scale-110 transition-transform"
                 >
-                  <a
-                    class="btn text-white bg-sky-500 hover:bg-sky-700 border-sky-700 hover:border-sky-700 "
-                    href="https://abelcastro.dev/blog/rebuilding-sports-dashboard-angular-to-nextjs"
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-code h-8 w-8"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    Read more
-                  </a>
+                    <path
+                      d="m16 18 6-6-6-6"
+                    />
+                    <path
+                      d="m8 6-6 6 6 6"
+                    />
+                  </svg>
                 </div>
+                <h4
+                  class="font-semibold text-foreground mb-2"
+                >
+                  Frontend Development
+                </h4>
+                <p
+                  class="text-sm text-muted-foreground"
+                >
+                  React, Next.js
+                </p>
               </div>
             </div>
             <div
-              class="card mb-6 bg-slate-800 shadow-xl w-full aspect-square undefined"
+              class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-teal-900 py-6 shadow-sm group hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              data-slot="card"
             >
-              <figure>
-                <img
-                  alt="Fasting Timer 18:6"
-                  data-nimg="1"
-                  decoding="async"
-                  height="250"
-                  loading="lazy"
-                  src="/_next/image?url=https%3A%2F%2Fgithub.com%2Fabel-castro%2Ffasting-timer%2Fblob%2Fmain%2Ffasting-timer-screenshot.jpg%3Fraw%3Dtrue&w=828&q=75"
-                  srcset="/_next/image?url=https%3A%2F%2Fgithub.com%2Fabel-castro%2Ffasting-timer%2Fblob%2Fmain%2Ffasting-timer-screenshot.jpg%3Fraw%3Dtrue&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fgithub.com%2Fabel-castro%2Ffasting-timer%2Fblob%2Fmain%2Ffasting-timer-screenshot.jpg%3Fraw%3Dtrue&w=828&q=75 2x"
-                  style="color: transparent;"
-                  width="400"
-                />
-              </figure>
               <div
-                class="card-body"
+                class="p-6 text-center"
+                data-slot="card-content"
               >
-                <h2
-                  class="card-title"
-                >
-                  Fasting Timer 18:6
-                </h2>
-                <p>
-                  Is a simple application designed to help users manage their intermittent fasting schedules.  I used React and Next.js to build it.
-                </p>
                 <div
-                  class="mt-3 card-actions justify-end"
+                  class="text-accent mb-4 flex justify-center group-hover:scale-110 transition-transform"
                 >
-                  <a
-                    class="btn text-white bg-sky-500 hover:bg-sky-700 border-sky-700 hover:border-sky-700 "
-                    href="/blog/building-fasting-timer-for-learning-react-nextjs"
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-database h-8 w-8"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    Read more
-                  </a>
+                    <ellipse
+                      cx="12"
+                      cy="5"
+                      rx="9"
+                      ry="3"
+                    />
+                    <path
+                      d="M3 5V19A9 3 0 0 0 21 19V5"
+                    />
+                    <path
+                      d="M3 12A9 3 0 0 0 21 12"
+                    />
+                  </svg>
                 </div>
+                <h4
+                  class="font-semibold text-foreground mb-2"
+                >
+                  Backend Development
+                </h4>
+                <p
+                  class="text-sm text-muted-foreground"
+                >
+                  Django, FastAPI, NestJS
+                </p>
               </div>
             </div>
             <div
-              class="card mb-6 bg-slate-800 shadow-xl w-full aspect-square undefined"
+              class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-teal-900 py-6 shadow-sm group hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              data-slot="card"
             >
-              <figure>
-                <img
-                  alt="Basic analytics"
-                  data-nimg="1"
-                  decoding="async"
-                  height="250"
-                  loading="lazy"
-                  src="/_next/image?url=https%3A%2F%2Fi.imgur.com%2FvqKIa0M.png&w=828&q=75"
-                  srcset="/_next/image?url=https%3A%2F%2Fi.imgur.com%2FvqKIa0M.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.imgur.com%2FvqKIa0M.png&w=828&q=75 2x"
-                  style="color: transparent;"
-                  width="400"
-                />
-              </figure>
               <div
-                class="card-body"
+                class="p-6 text-center"
+                data-slot="card-content"
               >
-                <h2
-                  class="card-title"
-                >
-                  Basic analytics
-                </h2>
-                <p>
-                   My self made and hosted alternative to Google Analytics. Made with Django, DRF, Bootstrap and Chart.js.
-                </p>
                 <div
-                  class="mt-3 card-actions justify-end"
+                  class="text-accent mb-4 flex justify-center group-hover:scale-110 transition-transform"
                 >
-                  <a
-                    class="btn text-white bg-sky-500 hover:bg-sky-700 border-sky-700 hover:border-sky-700 "
-                    href="/blog/my-self-made-hosted-google-analytics-alternative"
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-test-tube h-8 w-8"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    Read more
-                  </a>
+                    <path
+                      d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5c-1.4 0-2.5-1.1-2.5-2.5V2"
+                    />
+                    <path
+                      d="M8.5 2h7"
+                    />
+                    <path
+                      d="M14.5 16h-5"
+                    />
+                  </svg>
                 </div>
+                <h4
+                  class="font-semibold text-foreground mb-2"
+                >
+                  Testing
+                </h4>
+                <p
+                  class="text-sm text-muted-foreground"
+                >
+                  pytest, vitest, jest, Playwright
+                </p>
               </div>
             </div>
             <div
-              class="card mb-6 bg-slate-800 shadow-xl w-full aspect-square undefined"
+              class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-teal-900 py-6 shadow-sm group hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              data-slot="card"
             >
-              <figure>
-                <img
-                  alt="Kudos-Box"
-                  data-nimg="1"
-                  decoding="async"
-                  height="250"
-                  loading="lazy"
-                  src="/_next/image?url=https%3A%2F%2Fraw.githubusercontent.com%2Fabel-castro%2Fkudos-box%2Fmain%2Fscreenshot.jpg&w=828&q=75"
-                  srcset="/_next/image?url=https%3A%2F%2Fraw.githubusercontent.com%2Fabel-castro%2Fkudos-box%2Fmain%2Fscreenshot.jpg&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fraw.githubusercontent.com%2Fabel-castro%2Fkudos-box%2Fmain%2Fscreenshot.jpg&w=828&q=75 2x"
-                  style="color: transparent;"
-                  width="400"
-                />
-              </figure>
               <div
-                class="card-body"
+                class="p-6 text-center"
+                data-slot="card-content"
               >
-                <h2
-                  class="card-title"
-                >
-                  Kudos-Box
-                </h2>
-                <p>
-                  Anonymously send kudos to your colleagues and friends. The project is not online anymore but the source code is available on GitHub.
-                </p>
                 <div
-                  class="mt-3 card-actions justify-end"
+                  class="text-accent mb-4 flex justify-center group-hover:scale-110 transition-transform"
                 >
-                  <a
-                    class="btn text-white bg-sky-500 hover:bg-sky-700 border-sky-700 hover:border-sky-700 "
-                    href="https://github.com/abel-castro/kudos-box/"
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-languages h-8 w-8"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    Read more
-                  </a>
+                    <path
+                      d="m5 8 6 6"
+                    />
+                    <path
+                      d="m4 14 6-6 2-3"
+                    />
+                    <path
+                      d="M2 5h12"
+                    />
+                    <path
+                      d="M7 2h1"
+                    />
+                    <path
+                      d="m22 22-5-10-5 10"
+                    />
+                    <path
+                      d="M14 18h6"
+                    />
+                  </svg>
                 </div>
-              </div>
-            </div>
-            <div
-              class="card mb-6 bg-slate-800 shadow-xl w-full aspect-square undefined"
-            >
-              <div
-                class="card-body"
-              >
-                <h2
-                  class="card-title"
+                <h4
+                  class="font-semibold text-foreground mb-2"
                 >
-                  Other Stuff
-                </h2>
-                <p>
-                  I regularly work on other projects and experiment with new ideas. Check out my GitHub profile to see what I’ve been up to.
+                  Languages
+                </h4>
+                <p
+                  class="text-sm text-muted-foreground"
+                >
+                  Spanish, German, English
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+    <hr
+      class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-teal-400 to-transparent opacity-50"
+    />
+    <section
+      class="py-20 bg-background"
+      id="blog"
+    >
+      <div
+        class="container mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div
+          class="text-center mb-16"
+        >
+          <h2
+            class="text-3xl sm:text-4xl font-bold text-foreground mb-4"
+          >
+            My Blog
+          </h2>
+          <div
+            class="max-w-3xl mx-auto space-y-4"
+          >
+            <p
+              class="text-xl text-muted-foreground text-pretty"
+            >
+              In my blog I (and LLMs) write about coding-related topics.
+            </p>
+            <p
+              class="text-muted-foreground leading-relaxed"
+            >
+              The primary goal of my blog has always been to experiment and explore new technologies rather than getting more views.
+            </p>
+            <p
+              class="text-muted-foreground leading-relaxed"
+            >
+              The initial version of my blog was launched in 2021 using Django, Django templates, and Bootstrap. Over time, the blog evolved significantly: it incorporated htmx and even implemented a REST API. Both the blog and this page were part of the same Django project.
+            </p>
+            <p
+              class="text-muted-foreground leading-relaxed"
+            >
+              But similarly to my career path, the blog and the frameworks I work with have evolved significantly. When I discovered the charm of Next.js, I decided to re-implement it using Next.js. Check it out using the link below!
+            </p>
+            <p
+              class="text-muted-foreground leading-relaxed"
+            >
+              Please note that all opinions expressed on the blog are my own.
+            </p>
+          </div>
+          <div
+            class="mt-8"
+          >
+            <a
+              class="btn text-white bg-teal-500 hover:bg-teal-700 border-teal-700 hover:border-teal-700 "
+              href="/blog"
+            >
+              To the blog
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr
+      class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-teal-400 to-transparent opacity-50"
+    />
+    <section
+      class="py-20 bg-background"
+      id="projects"
+    >
+      <div
+        class="container mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div
+          class="text-center mb-16"
+        >
+          <h2
+            class="text-3xl sm:text-4xl font-bold text-foreground mb-4"
+          >
+            My Projects
+          </h2>
+          <p
+            class="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty"
+          >
+            One of my favorites ways to learn and grow as a developer is by building side projects. Here are some of them:
+          </p>
+        </div>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <div
+            class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-teal-900 py-6 shadow-sm group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+            data-slot="card"
+          >
+            <div
+              class="relative overflow-hidden"
+            >
+              <img
+                alt="TheBest.Ink"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                data-nimg="1"
+                decoding="async"
+                height="200"
+                loading="lazy"
+                src="/_next/image?url=%2Fimages%2Fthe-best-ink.png&w=828&q=75"
+                srcset="/_next/image?url=%2Fimages%2Fthe-best-ink.png&w=640&q=75 1x, /_next/image?url=%2Fimages%2Fthe-best-ink.png&w=828&q=75 2x"
+                style="color: transparent;"
+                width="400"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+            <div
+              class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6"
+              data-slot="card-header"
+            >
+              <div
+                class="font-semibold text-xl text-foreground group-hover:text-accent transition-colors"
+                data-slot="card-title"
+              >
+                TheBest.Ink
+              </div>
+            </div>
+            <div
+              class="px-6 space-y-4"
+              data-slot="card-content"
+            >
+              <p
+                class="text-muted-foreground text-sm leading-relaxed"
+              >
+                A platform for making easier to find tattoo artists and studios near you.
+              </p>
+              <div
+                class="flex flex-wrap gap-2"
+              >
+                <span
+                  class="inline-flex items-center justify-center font-medium rounded-full bg-gray-100 text-gray-800 px-2.5 py-1 text-sm text-xs"
+                >
+                  Next.js
+                </span>
+                <span
+                  class="inline-flex items-center justify-center font-medium rounded-full bg-gray-100 text-gray-800 px-2.5 py-1 text-sm text-xs"
+                >
+                  Tailwind CSS
+                </span>
+                <span
+                  class="inline-flex items-center justify-center font-medium rounded-full bg-gray-100 text-gray-800 px-2.5 py-1 text-sm text-xs"
+                >
+                  Django
+                </span>
+              </div>
+              <div
+                class="flex gap-2 pt-2"
+              >
+                <a
+                  class="flex-1"
+                  href="https://thebest.ink"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <button
+                    class="inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-teal-600 text-white hover:bg-teal-700 focus:ring-teal-500 px-3 py-1.5 text-sm w-full"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="lucide lucide-external-link mr-2 h-3 w-3"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15 3h6v6"
+                      />
+                      <path
+                        d="M10 14 21 3"
+                      />
+                      <path
+                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                      />
+                    </svg>
+                    See More
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-teal-900 py-6 shadow-sm group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+            data-slot="card"
+          >
+            <div
+              class="relative overflow-hidden"
+            >
+              <img
+                alt="Sports Dashboard"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                data-nimg="1"
+                decoding="async"
+                height="200"
+                loading="lazy"
+                src="/_next/image?url=%2Fimages%2Fsports-dashboard.png&w=828&q=75"
+                srcset="/_next/image?url=%2Fimages%2Fsports-dashboard.png&w=640&q=75 1x, /_next/image?url=%2Fimages%2Fsports-dashboard.png&w=828&q=75 2x"
+                style="color: transparent;"
+                width="400"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+            <div
+              class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6"
+              data-slot="card-header"
+            >
+              <div
+                class="font-semibold text-xl text-foreground group-hover:text-accent transition-colors"
+                data-slot="card-title"
+              >
+                Sports Dashboard
+              </div>
+            </div>
+            <div
+              class="px-6 space-y-4"
+              data-slot="card-content"
+            >
+              <p
+                class="text-muted-foreground text-sm leading-relaxed"
+              >
+                Small app that displays the results and standings of the most popular football (soccer) leagues in Europa.
+              </p>
+              <div
+                class="flex flex-wrap gap-2"
+              >
+                <span
+                  class="inline-flex items-center justify-center font-medium rounded-full bg-gray-100 text-gray-800 px-2.5 py-1 text-sm text-xs"
+                >
+                  Next.js
+                </span>
+                <span
+                  class="inline-flex items-center justify-center font-medium rounded-full bg-gray-100 text-gray-800 px-2.5 py-1 text-sm text-xs"
+                >
+                  MUI
+                </span>
+                <span
+                  class="inline-flex items-center justify-center font-medium rounded-full bg-gray-100 text-gray-800 px-2.5 py-1 text-sm text-xs"
+                >
+                  Django
+                </span>
+                <span
+                  class="inline-flex items-center justify-center font-medium rounded-full bg-gray-100 text-gray-800 px-2.5 py-1 text-sm text-xs"
+                >
+                  PostgreSQL
+                </span>
+              </div>
+              <div
+                class="flex gap-2 pt-2"
+              >
+                <a
+                  class="flex-1"
+                  href="https://sports-dashboard.abelcastro.dev"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <button
+                    class="inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-teal-600 text-white hover:bg-teal-700 focus:ring-teal-500 px-3 py-1.5 text-sm w-full"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="lucide lucide-external-link mr-2 h-3 w-3"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15 3h6v6"
+                      />
+                      <path
+                        d="M10 14 21 3"
+                      />
+                      <path
+                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                      />
+                    </svg>
+                    See More
+                  </button>
+                </a>
+                <a
+                  href="https://github.com/abel-castro/sports-dashboard"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <button
+                    class="inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-teal-600 text-teal-600 hover:bg-teal-50 focus:ring-teal-500 px-3 py-1.5 text-sm "
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="lucide lucide-github h-3 w-3"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                      />
+                      <path
+                        d="M9 18c-4.51 2-5-2-7-2"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border border-teal-900 py-6 shadow-sm group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+            data-slot="card"
+          >
+            <div
+              class="relative overflow-hidden"
+            >
+              <img
+                alt="Basic Analytics"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                data-nimg="1"
+                decoding="async"
+                height="200"
+                loading="lazy"
+                src="/_next/image?url=%2Fimages%2Fbasic-analytics.png&w=828&q=75"
+                srcset="/_next/image?url=%2Fimages%2Fbasic-analytics.png&w=640&q=75 1x, /_next/image?url=%2Fimages%2Fbasic-analytics.png&w=828&q=75 2x"
+                style="color: transparent;"
+                width="400"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+            <div
+              class="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6"
+              data-slot="card-header"
+            >
+              <div
+                class="font-semibold text-xl text-foreground group-hover:text-accent transition-colors"
+                data-slot="card-title"
+              >
+                Basic Analytics
+              </div>
+            </div>
+            <div
+              class="px-6 space-y-4"
+              data-slot="card-content"
+            >
+              <p
+                class="text-muted-foreground text-sm leading-relaxed"
+              >
+                My self made and hosted alternative to Google Analytics. Made with Django, DRF, Bootstrap and Chart.js.
+              </p>
+              <div
+                class="flex flex-wrap gap-2"
+              >
+                <span
+                  class="inline-flex items-center justify-center font-medium rounded-full bg-gray-100 text-gray-800 px-2.5 py-1 text-sm text-xs"
+                >
+                  Django
+                </span>
+                <span
+                  class="inline-flex items-center justify-center font-medium rounded-full bg-gray-100 text-gray-800 px-2.5 py-1 text-sm text-xs"
+                >
+                  Bootstrap
+                </span>
+                <span
+                  class="inline-flex items-center justify-center font-medium rounded-full bg-gray-100 text-gray-800 px-2.5 py-1 text-sm text-xs"
+                >
+                  Chart.js
+                </span>
+              </div>
+              <div
+                class="flex gap-2 pt-2"
+              >
+                <a
+                  class="flex-1"
+                  href="https://abelcastro.dev/blog/my-self-made-hosted-google-analytics-alternative"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <button
+                    class="inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed bg-teal-600 text-white hover:bg-teal-700 focus:ring-teal-500 px-3 py-1.5 text-sm w-full"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="lucide lucide-external-link mr-2 h-3 w-3"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15 3h6v6"
+                      />
+                      <path
+                        d="M10 14 21 3"
+                      />
+                      <path
+                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                      />
+                    </svg>
+                    See More
+                  </button>
+                </a>
+                <a
+                  href="https://github.com/abel-castro/basic_analytics"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <button
+                    class="inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-teal-600 text-teal-600 hover:bg-teal-50 focus:ring-teal-500 px-3 py-1.5 text-sm "
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="lucide lucide-github h-3 w-3"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                      />
+                      <path
+                        d="M9 18c-4.51 2-5-2-7-2"
+                      />
+                    </svg>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="text-center mt-12"
+        >
+          <a
+            href="http://github.com/abel-castro"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <button
+              class="inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-teal-600 text-teal-600 hover:bg-teal-50 focus:ring-teal-500 px-3 py-1.5 text-sm "
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-github mr-2 h-4 w-4"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                />
+                <path
+                  d="M9 18c-4.51 2-5-2-7-2"
+                />
+              </svg>
+              View All My Projects on GitHub
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
     <footer
       class="text-slate-300 p-4 text-center text-sm"
     >
