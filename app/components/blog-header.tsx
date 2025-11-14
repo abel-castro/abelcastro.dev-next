@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import PageTitle from './page-title';
 import Search from './posts/post-search';
 
