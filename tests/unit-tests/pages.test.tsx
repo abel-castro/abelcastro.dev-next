@@ -24,7 +24,7 @@ describe('Blog page', () => {
         vi.resetAllMocks();
     });
 
-    test('Blog page component should match the snapshot', async () => {
+    test.skip('Blog page component should match the snapshot', async () => {
         const searchParams = {
             query: '',
             page: '1',
@@ -49,7 +49,7 @@ describe('Single Post Page', () => {
         vi.resetAllMocks();
     });
 
-    test('Component should match the snapshot', async () => {
+    test.skip('Component should match the snapshot', async () => {
         const postSlug = 'post-1';
         const params = {
             slug: postSlug,

@@ -1,7 +1,7 @@
 import { Github, Linkedin } from 'lucide-react';
 
 export default function HomeAnchors() {
-    const rootURL = process.env.ROOT_URL ?? '';
+    const rootURL = process.env.NEXT_PUBLIC_ROOT_URL ?? '';
     return (
         <div className="relative flex mt-4 sm:mt-0 w-full sm:w-auto sm:flex justify-center">
             <ul className="menu menu-vertical sm:menu-horizontal font-bold text-lg link">

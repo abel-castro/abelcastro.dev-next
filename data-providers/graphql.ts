@@ -1,4 +1,4 @@
-import { ApolloClient, NormalizedCacheObject, gql } from '@apollo/client';
+import { ApolloClient, gql } from '@apollo/client';
 
 import { POST_PAGE_SIZE } from '../app/constants';
 import { Post, PostsAPIResponse } from '../app/lib/definitions';
@@ -52,9 +52,9 @@ type PostsOffsetBased = {
 };
 
 export class GraphqlDataProvider extends BaseDataProvider {
-    private client: ApolloClient<NormalizedCacheObject>;
+    private client: ApolloClient;
 
-    constructor(client: ApolloClient<NormalizedCacheObject>) {
+    constructor(client: ApolloClient) {
         super();
         this.client = client;
     }
@@ -75,6 +75,11 @@ export class GraphqlDataProvider extends BaseDataProvider {
             query: GET_POSTS,
             variables,
         });
+
+        if (!data) {
+            return { posts: [], totalPages: 0 };
+        }
+
         return {
             posts: data.posts,
             totalPages: calculateTotalPages(data.totalPosts, POST_PAGE_SIZE),
@@ -88,7 +93,7 @@ export class GraphqlDataProvider extends BaseDataProvider {
                 variables: { slug },
             });
 
-            return data.post || null;
+            return data?.post || null;
         } catch (error) {
             console.error('Error fetching post:', error);
             return null;
@@ -102,7 +107,7 @@ export class GraphqlDataProvider extends BaseDataProvider {
                 variables: { slug },
             });
 
-            return data.post || null;
+            return data?.post || null;
         } catch (error) {
             console.error('Error fetching post metadata:', error);
             return null;

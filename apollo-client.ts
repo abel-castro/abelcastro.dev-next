@@ -1,8 +1,9 @@
-import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { HttpLink } from '@apollo/client/link/http';
 
 const apolloClient = new ApolloClient({
-    link: createHttpLink({
-        uri: process.env.BLOG_GRAPHQL_URL,
+    link: new HttpLink({
+        uri: process.env.NEXT_PUBLIC_BLOG_GRAPHQL_URL,
         fetchOptions: {
             mode: 'cors',
         },

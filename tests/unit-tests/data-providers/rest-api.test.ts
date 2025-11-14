@@ -12,16 +12,16 @@ global.fetch = vi.fn();
 const restAPIDataProvider = new RestAPIDataProvider();
 
 describe('RestAPIDataProvider.getPostsFromStorage tests', () => {
-    test('getPostsFromStorage should throw an error if BLOG_API_URL is not set', async () => {
-        delete process.env.BLOG_API_URL;
+    test('getPostsFromStorage should throw an error if NEXT_PUBLIC_BLOG_API_URL is not set', async () => {
+        delete process.env.NEXT_PUBLIC_BLOG_API_URL;
         await expect(restAPIDataProvider.getAllFromStorage({})).rejects.toThrow(
-            'BLOG_API_URL is not set',
+            'NEXT_PUBLIC_BLOG_API_URL is not set',
         );
     });
 
     test('getPostsFromStorage should fetch posts with query and page size', async () => {
-        process.env.BLOG_API_URL = 'https://api.example.com/posts';
-        process.env.ROOT_URL = 'https://example.com';
+        process.env.NEXT_PUBLIC_BLOG_API_URL = 'https://api.example.com/posts';
+        process.env.NEXT_PUBLIC_ROOT_URL = 'https://example.com';
 
         const mockRestAPIResponse: PostsAPIResponse =
             generateMockRestAPIResponse(6);
@@ -47,7 +47,7 @@ describe('RestAPIDataProvider.getPostsFromStorage tests', () => {
     });
 
     test('getPostsFromStorage should handle fetch errors', async () => {
-        process.env.BLOG_API_URL = 'https://api.example.com/posts';
+        process.env.NEXT_PUBLIC_BLOG_API_URL = 'https://api.example.com/posts';
 
         (global.fetch as Mock).mockResolvedValueOnce({
             ok: false,
@@ -61,7 +61,7 @@ describe('RestAPIDataProvider.getPostsFromStorage tests', () => {
 
 describe('RestAPIDataProvider.getSinglePostFromStorage tests', () => {
     test('should fetch a single post by slug', async () => {
-        process.env.BLOG_API_URL = 'https://api.example.com/posts';
+        process.env.NEXT_PUBLIC_BLOG_API_URL = 'https://api.example.com/posts';
 
         const mockPost: Post = generateMockPosts(1)[0];
         (global.fetch as Mock).mockResolvedValueOnce({
@@ -78,7 +78,7 @@ describe('RestAPIDataProvider.getSinglePostFromStorage tests', () => {
     });
 
     test('should return null if the fetch fails', async () => {
-        process.env.BLOG_API_URL = 'https://api.example.com/posts';
+        process.env.NEXT_PUBLIC_BLOG_API_URL = 'https://api.example.com/posts';
 
         (global.fetch as Mock).mockResolvedValueOnce({
             ok: false,
@@ -92,7 +92,7 @@ describe('RestAPIDataProvider.getSinglePostFromStorage tests', () => {
 
 describe('RestAPIDataProvider.getPostMetadataFromStorage tests', () => {
     test('should fetch a single post by slug', async () => {
-        process.env.BLOG_API_URL = 'https://api.example.com/posts';
+        process.env.NEXT_PUBLIC_BLOG_API_URL = 'https://api.example.com/posts';
 
         const mockPost: Post = generateMockPosts(1)[0];
         (global.fetch as Mock).mockResolvedValueOnce({
@@ -109,7 +109,7 @@ describe('RestAPIDataProvider.getPostMetadataFromStorage tests', () => {
     });
 
     test('should return null if the fetch fails', async () => {
-        process.env.BLOG_API_URL = 'https://api.example.com/posts';
+        process.env.NEXT_PUBLIC_BLOG_API_URL = 'https://api.example.com/posts';
 
         (global.fetch as Mock).mockResolvedValueOnce({
             ok: false,

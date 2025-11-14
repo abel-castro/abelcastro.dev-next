@@ -8,9 +8,9 @@ export class RestAPIDataProvider extends BaseDataProvider {
     async getAllFromStorage(
         options: PostSearchOptions,
     ): Promise<PaginatedPosts> {
-        const apiUrl = process.env.BLOG_API_URL;
+        const apiUrl = process.env.NEXT_PUBLIC_BLOG_API_URL;
         if (!apiUrl) {
-            throw new Error('BLOG_API_URL is not set');
+            throw new Error('NEXT_PUBLIC_BLOG_API_URL is not set');
         }
 
         const urlWithParams = new URL(apiUrl);
@@ -38,9 +38,9 @@ export class RestAPIDataProvider extends BaseDataProvider {
 
         const jsonResponse: PostsAPIResponse = await response.json();
 
-        const baseUrl = process.env.ROOT_URL;
+        const baseUrl = process.env.NEXT_PUBLIC_ROOT_URL;
         if (!baseUrl) {
-            throw new Error('ROOT_URL is not set');
+            throw new Error('NEXT_PUBLIC_ROOT_URL is not set');
         }
 
         return {
@@ -50,7 +50,7 @@ export class RestAPIDataProvider extends BaseDataProvider {
     }
 
     async getOneBySlugFromStorage(slug: string): Promise<Post | null> {
-        const response = await fetch(`${process.env.BLOG_API_URL}/${slug}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BLOG_API_URL}/${slug}`);
         if (!response.ok) {
             return null;
         }

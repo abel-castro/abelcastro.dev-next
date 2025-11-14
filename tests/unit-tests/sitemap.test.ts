@@ -13,11 +13,11 @@ describe('sitemap', () => {
                 priority: 1.0,
             },
             {
-                url: `${process.env.ROOT_URL}/blog/post-1`,
+                url: `${process.env.NEXT_PUBLIC_ROOT_URL}/blog/post-1`,
                 priority: 0.8,
             },
             {
-                url: `${process.env.ROOT_URL}/blog/post-2`,
+                url: `${process.env.NEXT_PUBLIC_ROOT_URL}/blog/post-2`,
                 priority: 0.8,
             },
         ];

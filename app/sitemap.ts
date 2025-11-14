@@ -9,11 +9,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     return [
         {
-            url: process.env.ROOT_URL || '',
+            url: process.env.NEXT_PUBLIC_ROOT_URL || '',
             priority: 1.0,
         },
         ...posts.map((post: Post) => ({
-            url: `${process.env.ROOT_URL}/blog/${post.slug}`,
+            url: `${process.env.NEXT_PUBLIC_ROOT_URL}/blog/${post.slug}`,
             priority: 0.8,
         })),
     ];

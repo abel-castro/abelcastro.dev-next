@@ -14,7 +14,7 @@ export async function generateMetadata({
 }: SinglePostPageProps): Promise<Metadata | null> {
     const slug = params.slug;
     const post = await activeDataProvider.getPostMetadata(slug);
-    const rootURL = process.env.ROOT_URL ?? '';
+    const rootURL = process.env.NEXT_PUBLIC_ROOT_URL ?? '';
     const canonicalUrl = `${rootURL}/blog/${slug}`;
 
     if (!post) {
