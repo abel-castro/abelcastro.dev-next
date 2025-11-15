@@ -52,7 +52,6 @@
         "@vitejs/plugin-react": "^5.1.1",
         "@vitejs/plugin-react-swc": "^4.2.2",
         "@vitest/coverage-v8": "^4.0.9",
-        "daisyui": "^5.5.3",
         "eslint": "^9.39.1",
         "eslint-config-next": "16.0.3",
         "jsdom": "^27.2.0",

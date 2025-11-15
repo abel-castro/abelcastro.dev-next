@@ -74,7 +74,6 @@ const config: Config = {
         require('@tailwindcss/typography')({
             className: 'from-markdown',
         }),
-        require('daisyui'),
     ],
 };
 export default config;

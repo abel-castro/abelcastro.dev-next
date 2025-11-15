@@ -37,7 +37,6 @@ export function MyBlogSection() {
             <LinkAsButton
               href="/blog"
               text="To the blog"
-              extraClasses=""
             />
           </div>
         </div>

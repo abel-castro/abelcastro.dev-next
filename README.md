@@ -8,7 +8,6 @@ Features:
 
 -   [Next.js](https://nextjs.org/)
 -   [Tailwind CSS](https://tailwindcss.com)
--   [Daisy UI](https://daisyui.com/)
 -   [dotenv](https://www.npmjs.com/package/dotenv)
 
 This project was bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
