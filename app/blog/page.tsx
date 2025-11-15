@@ -15,7 +15,7 @@ export type BlogHomeSearchParams = {
 };
 
 interface BlogHomeProps {
-    searchParams: BlogHomeSearchParams;
+    searchParams: Promise<BlogHomeSearchParams>;
 }
 
 export const metadata: Metadata = {
@@ -28,8 +28,9 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogHome({ searchParams }: BlogHomeProps) {
-    const query = searchParams?.query || '';
-    const currentPage = Number(searchParams?.page) || 1;
+    const params = await searchParams;
+    const query = params?.query || '';
+    const currentPage = Number(params?.page) || 1;
     const options: PostSearchOptions = {
         currentPage: currentPage,
         query: query,
