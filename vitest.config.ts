@@ -13,6 +13,10 @@ export default defineConfig({
         ],
         globals: true,
         environment: 'jsdom',
+        env: {
+            NEXT_PUBLIC_BLOG_GRAPHQL_URL: 'http://localhost:8000/graphql',
+            NEXT_PUBLIC_ROOT_URL: 'http://localhost:3000',
+        },
         exclude: ['node_modules/', 'dist/', 'tests/'],
         coverage: {
             provider: 'v8',

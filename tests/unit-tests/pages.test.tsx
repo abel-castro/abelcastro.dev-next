@@ -25,10 +25,10 @@ describe('Blog page', () => {
     });
 
     test.skip('Blog page component should match the snapshot', async () => {
-        const searchParams = {
+        const searchParams = Promise.resolve({
             query: '',
             page: '1',
-        };
+        });
 
         const { container } = render(
             <Suspense>
@@ -51,9 +51,9 @@ describe('Single Post Page', () => {
 
     test.skip('Component should match the snapshot', async () => {
         const postSlug = 'post-1';
-        const params = {
+        const params = Promise.resolve({
             slug: postSlug,
-        };
+        });
 
         const { container } = render(
             <Suspense>
@@ -69,9 +69,9 @@ describe('Single Post Page', () => {
 
     test('Component should raise not found', async () => {
         const postSlug = 'post-not-found';
-        const params = {
+        const params = Promise.resolve({
             slug: postSlug,
-        };
+        });
 
         const { container } = render(<SinglePostPage params={params} />);
 
@@ -82,14 +82,14 @@ describe('Single Post Page', () => {
         const postSlug = 'post-1';
 
         const props: SinglePostPageProps = {
-            params: { slug: postSlug },
+            params: Promise.resolve({ slug: postSlug }),
         };
 
         const expectedMetadata: Metadata = {
             title: 'Post 1 | abelcastro.dev',
             description: 'Post 1 meta description',
             alternates: {
-                canonical: '/blog/post-1',
+                canonical: `${process.env.NEXT_PUBLIC_ROOT_URL}/blog/post-1`,
             },
         };
 
@@ -100,7 +100,7 @@ describe('Single Post Page', () => {
 
     test('generateMetadata should return null if the post is not found', async () => {
         const props: SinglePostPageProps = {
-            params: { slug: 'non-existent-post' },
+            params: Promise.resolve({ slug: 'non-existent-post' }),
         };
 
         const result = await generateMetadata(props);

@@ -1,4 +1,3 @@
-import { MetadataRoute } from 'next';
 import { describe, expect, test } from 'vitest';
 
 import sitemap, { getStaticProps } from '../../app/sitemap';
@@ -9,7 +8,7 @@ describe('sitemap', () => {
 
         const expectedResult = [
             {
-                url: '',
+                url: process.env.NEXT_PUBLIC_ROOT_URL || '',
                 priority: 1.0,
             },
             {

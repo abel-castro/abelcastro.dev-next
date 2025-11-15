@@ -6,13 +6,13 @@ import activeDataProvider from '../../../data-providers/active';
 import PostSingle from '../../components/posts/post-single';
 
 export interface SinglePostPageProps {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({
     params,
 }: SinglePostPageProps): Promise<Metadata | null> {
-    const slug = params.slug;
+    const { slug } = await params;
     const post = await activeDataProvider.getPostMetadata(slug);
     const rootURL = process.env.NEXT_PUBLIC_ROOT_URL ?? '';
     const canonicalUrl = `${rootURL}/blog/${slug}`;
@@ -32,7 +32,7 @@ export async function generateMetadata({
 }
 
 export default async function SinglePostPage({ params }: SinglePostPageProps) {
-    const slug = params.slug;
+    const { slug } = await params;
     const post = await activeDataProvider.getOneBySlug(slug);
 
     if (!post) {

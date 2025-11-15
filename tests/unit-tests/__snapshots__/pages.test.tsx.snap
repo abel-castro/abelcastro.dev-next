@@ -18,7 +18,7 @@ exports[`Home page > Home page component should match the snapshot 1`] = `
             class="text-3xl font-bold rainbow-text text-center sm:text-left content-center"
           >
             <a
-              href=""
+              href="http://localhost:3000"
             >
               abelcastro.dev
             </a>
