@@ -194,7 +194,7 @@ exports[`Home page > Home page component should match the snapshot 1`] = `
     </div>
   </header>
   <section
-    class="min-h-screen flex items-center justify-center bg-linear-to-br from-background to-muted"
+    class="min-h-screen flex items-center justify-center bg-linear-to-br from-background to-muted pt-20 sm:pt-16"
     id="hero"
   >
     <div

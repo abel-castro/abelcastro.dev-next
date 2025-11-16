@@ -113,7 +113,7 @@ export function HomeHeader() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-teal-900 border-border">
+            <div className="px-2 pt-2 pb-6 space-y-1 bg-background border-t border-teal-900 border-border">
               <button
                 onClick={() => scrollToSection("about-me")}
                 className="block px-3 py-2 text-foreground hover:text-teal-400 hover:bg-accent/10 transition-all duration-200 w-full text-left rounded-md"
