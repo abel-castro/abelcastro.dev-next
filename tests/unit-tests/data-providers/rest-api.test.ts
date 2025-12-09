@@ -1,5 +1,4 @@
-import { describe } from 'node:test';
-import { Mock, expect, test, vi } from 'vitest';
+import { describe, Mock, expect, test, vi } from 'vitest';
 
 import { POST_PAGE_SIZE } from '../../../app/constants';
 import { Post, PostsAPIResponse } from '../../../app/lib/definitions';
