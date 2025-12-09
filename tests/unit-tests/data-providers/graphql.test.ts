@@ -1,5 +1,4 @@
-import { describe } from 'node:test';
-import { expect, test, vi } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 
 import {
     GET_POST,
