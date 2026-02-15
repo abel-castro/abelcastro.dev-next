@@ -30,7 +30,7 @@
         "install": "^0.13.0",
         "lucide-react": "^0.553.0",
         "next": "^16.0.7",
-        "next-mdx-remote": "^5.0.0",
+        "next-mdx-remote": "^6.0.0",
         "react": "canary",
         "react-dom": "canary",
         "rehype-autolink-headings": "^7.1.0",
