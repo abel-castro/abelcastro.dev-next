@@ -7,6 +7,9 @@ import { defineConfig, devices } from '@playwright/test';
 // import dotenv from 'dotenv';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
+const localPlaywrightBaseUrl = 'http://127.0.0.1:3000';
+const vercelBypassSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -22,17 +25,23 @@ export default defineConfig({
     workers: process.env.CI ? 1 : undefined,
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
     reporter: 'html',
+    webServer: {
+        command: 'npm run dev',
+        url: localPlaywrightBaseUrl,
+        reuseExistingServer: !process.env.CI,
+    },
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
-        baseURL:
-            process.env.PLAYWRIGHT_TEST_BASE_URL ?? 'http://localhost:3000',
+        baseURL: localPlaywrightBaseUrl,
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
         trace: 'on-first-retry',
-        // https://vercel.com/docs/security/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation
-        extraHTTPHeaders: {
-            'x-vercel-protection-bypass': process.env
-                .VERCEL_AUTOMATION_BYPASS_SECRET as string,
-        },
+        // Kept for optional runs targeting Vercel-protected URLs.
+        extraHTTPHeaders: vercelBypassSecret
+            ? {
+                  // https://vercel.com/docs/security/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation
+                  'x-vercel-protection-bypass': vercelBypassSecret,
+              }
+            : undefined,
     },
 
     /* Configure projects for major browsers */
