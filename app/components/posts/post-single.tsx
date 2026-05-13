@@ -1,16 +1,58 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { Suspense } from 'react';
+import {
+    isValidElement,
+    Suspense,
+    type HTMLAttributes,
+    type ReactNode,
+} from 'react';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 
 import { Tag } from '../../lib/definitions';
+import MermaidChart from './mermaid-chart';
 import PostDate from './post-date';
 import PostTags from './post-tags';
 import PostTitle from './post-title';
 import { PostContentSkeleton } from './skeletons';
 
 const rehypePlugins = [rehypeSlug, rehypeAutolinkHeadings, rehypeHighlight];
+
+type CodeElementProps = {
+    className?: string;
+    children?: ReactNode;
+};
+
+function getTextContent(node: ReactNode): string {
+    if (typeof node === 'string' || typeof node === 'number') {
+        return String(node);
+    }
+
+    if (Array.isArray(node)) {
+        return node.map(getTextContent).join('');
+    }
+
+    if (isValidElement<{ children?: ReactNode }>(node)) {
+        return getTextContent(node.props.children);
+    }
+
+    return '';
+}
+
+function Pre({ children, ...props }: HTMLAttributes<HTMLPreElement>) {
+    if (
+        isValidElement<CodeElementProps>(children) &&
+        children.props.className?.split(' ').includes('language-mermaid')
+    ) {
+        return (
+            <MermaidChart
+                chart={getTextContent(children.props.children).trim()}
+            />
+        );
+    }
+
+    return <pre {...props}>{children}</pre>;
+}
 
 export default async function PostSingle({
     title,
@@ -36,6 +78,9 @@ export default async function PostSingle({
                 <div className="from-markdown max-w-none mt-4">
                     <MDXRemote
                         source={content}
+                        components={{
+                            pre: Pre,
+                        }}
                         options={{
                             mdxOptions: {
                                 rehypePlugins,
