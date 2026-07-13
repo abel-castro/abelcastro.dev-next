@@ -4,6 +4,7 @@ import {
     Suspense,
     type HTMLAttributes,
     type ReactNode,
+    type VideoHTMLAttributes,
 } from 'react';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
@@ -54,6 +55,22 @@ function Pre({ children, ...props }: HTMLAttributes<HTMLPreElement>) {
     return <pre {...props}>{children}</pre>;
 }
 
+export function Video({
+    src,
+    ...props
+}: VideoHTMLAttributes<HTMLVideoElement>) {
+    return (
+        <video
+            controls
+            playsInline
+            preload="metadata"
+            className="w-full rounded-lg"
+            src={src}
+            {...props}
+        />
+    );
+}
+
 export default async function PostSingle({
     title,
     slug,
@@ -80,6 +97,7 @@ export default async function PostSingle({
                         source={content}
                         components={{
                             pre: Pre,
+                            Video,
                         }}
                         options={{
                             mdxOptions: {
